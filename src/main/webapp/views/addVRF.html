@@ -1,0 +1,31 @@
+<div class="aci-dialog-content-div">
+    <form aci-validator="validator" ng-submit="validateAddVRF($event)">
+	<!-- Use the form instead of attributes -->
+        <div class="aci-dialog-content-span">
+            <label class="aci-textbox-label" for="name" style="padding-right:20px; width:20%">Name</label>
+            <input type="text" id="name" ng-model="addVrfForm.name" class="aci-state-disabled" disabled="disabled" style="width:60%"/>
+        </div>
+        </br>
+        <div class="aci-dialog-content-span">
+            <label class="aci-dropdown-label" for="location" style="padding-right:20px; width:20%">Location</label>
+            <select ng-model="addVrfForm.locationSelect" class="aci-dropdown" id="location"
+                    ng-options="loc for loc in location">
+            </select>
+        </div>
+        </br>
+        <div class="aci-dialog-content-span">
+            <label class="aci-dropdown-label" for="status" style="padding-right:20px; width:20%">Status</label>
+            <select ng-model="addVrfForm.statusSelect" class="aci-dropdown"
+                    ng-options="st for st in status">
+            </select>
+        </div>
+        </br>
+        </br>
+        <div class="aci-dialog-content-span">
+            <aci-button class="aci-primary" type="submit" style="float : right;">Save</aci-button>
+            <aci-button type="button" on-click="onCancelVRF()" style="float : right;margin-right: 10px;">Cancel</aci-button>
+        </div>
+    </form>
+</div>
+
+

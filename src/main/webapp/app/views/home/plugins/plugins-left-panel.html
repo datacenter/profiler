@@ -1,0 +1,12 @@
+<div class="col-lg-3 col-md-3 col-sm-12">
+	
+	<div class="clr margintop10 outerBorder addDevice winHeight"> 
+
+	<div class="clr deviceHead">
+		<span class="sub_title">VENDORS</span> 
+	</div>
+		<dl class="deviceList">
+			<dd ng-repeat="vendor in pluginsLPCtrl.pluginsCtrl.vendorsList" ng-class="{activeDevice:$index == pluginsLPCtrl.selectedVendorIndex}" ng-click="pluginsLPCtrl.selectVendor($index, vendor)" >{{vendor}}</dd> 
+		</dl>
+	</div>
+</div>

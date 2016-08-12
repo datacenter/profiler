@@ -1,0 +1,20 @@
+<div class="aci-dialog-content-div">
+    <form class="formDataStyle" name="editTenantForm" id="editTenant">
+    <!-- Use the form instead of attributes -->
+        <div class="aci-dialog-content-span">
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;Name</label>
+            <input type="text" class="a-textbox aci-field tenant-project-label"  id="displayName" ng-model="tenantDisplayNameToEdit" required/>
+        </div> 
+    </br>
+       
+
+        <div class="aci-dialog-content-span add-tenant-footer">
+            <div class="window-button">
+                <input class = "a-button add-tenant-buttons" type="submit" value="Save" style="margin-left:-20px"  ng-click="updateTenant(tenantDisplayNameToEdit)" />
+                <span><input class = "a-button add-tenant-buttons" type="button" ng-click="cancelUpdateTenant(true)" value="Cancel"></span>
+            </div>
+       </div>
+    </form>
+</div>
+
+

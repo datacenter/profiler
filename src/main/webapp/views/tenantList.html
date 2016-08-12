@@ -1,0 +1,92 @@
+      <div class="commonTenant" ng-click="changeSelectedTenant(0)">
+		<div class="tenantCardTitle">Common</div><!-- {{tenantList[0].displayName}} -->
+		<div style="margin-top:8px;">
+				         <span class="dashed" style="margin-left:70px;height:10px;"></span>
+						 <span class="dashed" style="margin-left:75px;height:80%"></span>
+						 <div class="tenantCardText" style="margin-top:-15px;text-align:left;">{{tenantList[0].totalEpgCount}} EPGs </div>
+		
+						<div class="tenantCardText" style="margin-left:85px;margin-top:-16px;text-align:left;">{{tenantList[0].vrfs.length}} VRFs </div>
+	
+						<div class="tenantCardText"style="margin-left:165px;margin-top:-16px;" value="6">{{tenantList[0].totalBdCount}} BDs </div>
+				  </div>
+				  <div style="margin-top:3px;">
+				        <span class="dashed" style="margin-left:70px;"></span>
+                        <span class="dashed" style="margin-left:75px;"></span>
+						<div class="tenantCardText" style="margin-top:-15px;text-align:left;">{{tenantList[0].totalContractCount}} CTs </div>
+						<div class="tenantCardText" style="margin-left:85px;margin-top:-16px;text-align:left;">{{tenantList[0].totalFilterCount}} Filters </div>
+						<div class="tenantCardText" style="margin-left:165px;margin-top:-16px;text-align:left;">{{tenantList[0].totalEndPoints}} Eps </div>
+				  </div>
+		</div>
+		<div ng-show="selectedTenantIndex==0" class="selectedTenant"></div>
+	   
+   
+      <div class="tenantCarousal" id="tenantList">
+	  
+		<!--   <ul style="height:31px;margin-top:-120px;margin-left:-50px;">
+   			
+                <li ng-repeat="tenant in tenantList" ng-if="$index!=0" style="display:inline;
+				    list-style-type:none;">
+
+					<button class="tenantClose tenantInstanceEdit" ng-show="$index==editTenantIndex" ng-click="cancelUpdateTenant()">Cancel</button>
+						<button class="tenantSave tenantInstanceEdit" ng-show="$index==editTenantIndex" ng-click="updateTenant()">Save</button>
+				</li>
+			</ul> -->
+            
+             	  
+		<div>	
+		 
+		 <div ng-show="selectedTenantIndex!=0" class="selectedTenant" style="width:354px;left:325px;position:absolute;top:131px;"></div>
+		 
+
+            <ul id="content-slider" class="content-slider" style="height:85px !important;">
+                <li ng-repeat="tenant in tenantList" ng-if="$index!=0" ng-click="changeSelectedTenant($index)" ng-class="{tenantCardSelected:$index===0}" class="tenantCard">
+                <div ng-model=tenant.id>
+
+				
+				 <div class="" style="padding-bottom:15px"  alt="{{tenant.displayName}}">
+
+				<!--i class="glyphicon glyphicon-remove" style="margin-top:-5px; font-size:60%;color:#109fd4;" ng-click="openDelTenantWindow($index)"></i-->
+				
+
+						<div class="tenantCardTitle pull-left" title="{{tenant.displayName}}" style="width:140px;"  ng-model=tenant.displayName>&nbsp;{{tenant.displayName}}</div>
+						
+					<!-- 	<input type="number" id="tenantInstances" ng-model=tenant.count ng-readonly="$index==0" min=1 ng-change="editTenant($index, tenant.count)" ng-click="tenantInstancesClicked()" name="tenantInstances" ng-class="changeTenantInstancesField()"> -->
+						<!-- <div id="appclose" style="margin-top:-26px;margin-left:237px;width:10px;font-size:10px;position:absolute;" ng-click="openDelTenantWindow($index+1)">&#10006;</div> -->
+						<!-- close tenant -->
+						<span style="position: absolute; border-right:1px solid #ddd; margin-top:3px; padding-right:6px; line-height: 15px; margin-left: 88px; cursor:pointer; z-index: 1000;">						 
+						 	<span  title="Modified" class="tooltip"><i class="fa fa-circle modified text-warning "  ng-if="tenant.modifiedTime > tenant.lastPushedTime"></i></span><!-- &nbsp;	Modified -->
+							<span  title="Success" class="tooltip"><i class="fa fa-circle success  text-success  " ng-if="tenant.lastPushedTime > tenant.modifiedTime"></i></span><!-- &nbsp;	Success -->			
+						</span>
+						<span class="editTenant tooltip" title="Edit Tenant" ng-click="openEditTenantWindow(tenant, $index+1)"><i class="fa fa-pencil"></i></span>
+						<div id="appclose" class="tooltip" title="Delete Tenant" style="clear: both; float: left; top: 3px; position: relative; left: 310px;" ng-click="openDelTenantWindow($index+1)">&#10006;</div>
+
+						
+
+                   </div>
+				  <div style="margin-top:5px; clear:both">
+				         <span class="dashed" style="margin-left:78px;height:10px;"></span>
+						 <span class="dashed" style="margin-left:80px;height:80%"></span>
+						 <div class="tenantCardText" style="margin-top:-15px;text-align:left;margin-left:15px;">{{tenant.totalEpgCount}} EPGs </div>
+		
+						<div class="tenantCardText" style="margin-left:98px;margin-top:-16px;text-align:left;">{{tenant.vrfs.length}} VRFs </div>
+	
+						<div class="tenantCardText"style="margin-left:178px;margin-top:-16px;" value="6">{{tenant.totalBdCount}} BDs </div>
+				  </div>
+				  <div style="margin-top:3px;">
+				        <span class="dashed" style="margin-left:78px;"></span>
+                        <span class="dashed" style="margin-left:80px;"></span>
+						<div class="tenantCardText" style="margin-top:-15px;text-align:left;margin-left:15px;">{{tenant.totalContractCount}} CTs </div>
+						<div class="tenantCardText" style="margin-left:98px;margin-top:-16px;text-align:left;">{{tenant.totalFilterCount}} Filters </div>
+						<div class="tenantCardText" style="margin-left:178px;margin-top:-16px;text-align:left;">{{tenant.totalEndPoints}} Eps </div>
+				  </div>
+		</div>		  
+                </div>
+				
+                </li>
+            </ul>
+
+            
+	</div>
+	</div>
+	
+	<div id="delTenantWindow" style="display:none;" ng-include src="'views/delTenant.html'" style="border-radius:4px"></div>

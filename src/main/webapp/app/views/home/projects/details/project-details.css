@@ -1,0 +1,91 @@
+.tenentValue{
+    margin: 5px 0px;
+    padding: 0px;
+    overflow: hidden;
+    clear: both;
+}
+.tenentValue dd{
+    float: left;
+    width: 33%;
+    border-right: 1px solid #AFAFAF;
+    text-align: center;
+    font-size: 11px;
+    margin: 5px 0px 0px 0px;
+}
+
+.tenentValue dd:last-child,.tenentValue dd:nth-child(3){
+  border-right: 0px;
+}
+.tenentOuter{
+    width: 19%;
+    border: 1px solid #EAEAEA;
+    overflow: hidden;
+    padding: 5px 10px;
+    margin-top: 10px;
+    float: left;
+    margin-right: 13px;
+}
+.tenentOuter h5{
+  padding: 0px;
+  margin: 0px;
+  font-size: 13px; 
+}
+.activeTenent{
+      border-bottom: 3px solid #03A2E3
+}
+/*.tenantView{
+    overflow: hidden;
+    padding: 0px 15px;
+    width: 100% !important;
+    background: none !important;
+}*/
+.appln-header-box {
+    width: 100%;
+    height: 55px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #E3E3E3;
+}
+.plus-icon {
+    display: inline-block;
+    width: 21px !important;
+    height: 21px;
+    background-image: url("../../../../../images/plus-icon.png");
+    padding-left: 0px;
+    margin-top: 0px;
+    background-repeat: no-repeat;
+    border-style: none;
+    cursor: pointer;
+    padding-top: 20px;
+}
+
+.shapeItem {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-image: url("../../../../../../images/appicons-sprites.png");
+    background-size: auto 100%;
+}
+.tenantList{
+    padding: 0px;
+    margin: 10px 0px 0px 0px;
+    border-top: 1px solid #ddd;
+}
+.tenantList li{
+    list-style-type: none;
+    border-bottom: 1px solid #ddd;
+    text-indent: 3px;
+    padding: 10px 0px;
+}
+.tenantList input[type="checkbox"]{
+    position: relative;
+    top: 3px;
+    margin-right: 5px;
+}
+.update_txt{
+  color: #757575;
+  font-size: 17px;
+}
+.orange_txt{
+  color: orange;
+  font-size: 17px;
+}

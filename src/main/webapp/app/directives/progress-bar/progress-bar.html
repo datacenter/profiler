@@ -1,0 +1,12 @@
+<div class="mpl-progress-bar transform-center" ng-if="canShow">
+	<div class="backdrop" ng-if="::backDrop"></div>
+	<div class="mpl-content transform-vcenter">
+		<div ng-if="::closeBtn">
+			<a href="javascript:void(0)" class="close pull-right" ng-click="close()">X</a>
+		</div>
+		<div class="mpl-progress"><img src="images/loading.gif"></div>
+		<span class="mpl-progress txt-progress"> {{::progressMessage}} </span>
+		<span class="mpl-error txt-error"> {{::errorMessage}} </span>
+		<span class="mpl-success txt-success"> {{::successMessage}} </span>
+	</div>
+</div>

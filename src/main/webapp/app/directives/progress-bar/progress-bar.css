@@ -1,0 +1,98 @@
+.mpl-progress-bar-container {
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  z-index: 1000;
+}
+
+.mpl-progress-bar {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  text-align: center;
+  text-align: center;
+  font-family: monospace;
+}
+
+.mpl-content {
+  background-color: #fff;
+  display: inline-block;
+  position: relative;
+  box-shadow: 1px 1px 8px #C8C8C8;
+  border-radius: 5px;
+  pointer-events: all;
+  padding: 20px 30px;
+  max-width: 98%;
+}
+
+.backdrop {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #ccc;
+  pointer-events: all;
+  opacity: 0.9;
+}
+
+.close {
+  color: #111;
+  text-decoration: none;
+  position: relative;
+  right: -15px;
+  top: -15px;
+  font-size: 14px;
+}
+
+.pull-right {
+  float: right;
+}
+
+.transform-center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.transform-vcenter {
+  top: 50%;
+  transform: translate(-0%, -50%);
+}
+
+.mpl-progress-bar .mpl-progress,
+.mpl-progress-bar .mpl-success,
+.mpl-progress-bar .mpl-error {
+  display: none;
+  text-align: center;
+  background: none;
+  height: auto;
+  border: 0px;
+}
+
+.mpl-progress .mpl-progress-bar,
+.mpl-success .mpl-progress-bar,
+.mpl-error .mpl-progress-bar,
+.mpl-progress .mpl-progress-bar .mpl-progress,
+.mpl-success .mpl-progress-bar .mpl-success,
+.mpl-error .mpl-progress-bar .mpl-error {
+  display: block;
+}
+
+.txt-progress {
+  color: #717171; 
+  font-size: 14px;
+}
+
+.txt-error {
+  color: #A52A2A;
+  /*BROWN*/
+}
+
+.txt-success {
+  color: #006400;
+  /*DARK GREEN*/
+}

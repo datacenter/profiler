@@ -1,0 +1,130 @@
+<span id="notification" style="display:none;"></span>
+<span id="ruler"></span>
+<div id="context-menu">
+  <div id="node-preview" class=""></div>
+</div>
+<div>
+  <nav class="breadcrumb">
+    <a ui-sref="home.projects">Projects </a> 
+    <span> > {{currProject.name}} </span>
+  </nav>
+  <!--  <div ui-view='toppanel'></div>  -->
+  <div class="margintop10 clr">
+    <div ng-include src="'views/diagrameditor.html'"></div>
+    <!-- <div ui-view='n class="col-lg-6"></div>
+    <div ui-view='rightpanel' class="col-lg-6"></div> -->
+    <div id="splitter">
+      <div id="tenant-splitter">
+        <div id="tenant-pane" style="background-color:#fafafa;  position:relative">
+          <div class="pane-content">
+            <div class="tenantView" style="background-color:#fff;  border: 1px solid #ddd; text-indent: 5px; overflow:hidden">
+              <div class="tenantTitle" style="height:30px; border-bottom:1px solid #ddd">
+                <span class="titles pull-left">Tenants</span>
+                <input type="button" class="add_btn" value="Add Tenant" ng-click="openTenantWindow()" style="top:3px; left:77%; position: relative "></a>
+                 <span ng-include src="'views/tenantList.html'"></span>
+                <div class="tenantMenu" ng-show="tenantList.length > 1" </div>
+                  <a class="dropdown-toggle" data-toggle="dropdown" style="margin-top:0px;z-index:8000;">
+                    <div class="tenantMenuIcon" aria-hidden="true"></div>
+                    <ul class="dropdown-menu" id="tenantDropDownList" ng-show="tenantList.length > 1" style="margin-left:0px;top:23px;position:absolute;">
+                      <a class="dropdown-toggle" data-toggle="dropdown" style="margin-top:0px;z-index:8000;"></a>
+                      <li class="tenantDropDown" ng-if="$index!=0" ng-click="changeSelectedTenant($index)" ng-repeat="t_tenant in tenantList"><a>{{t_tenant.displayName}}</a></li>
+                    </ul>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="summaryView"   style="background-color:#fff;">
+              <span ng-include src="'views/push_apic.html'"></span>
+            </div>
+          </div>
+        </div>
+        <div class="" >
+          <div id="center-splitter" style="height: 100% !important;">
+            <div id="app-left-pane">
+              <div class="pane-content" style="position:relative; background:#fff; border-top: 1px solid #E3E3E3">
+                <div class="appln-header-box">
+                  <div class="appln-pane-title">APPLICATIONS</div>
+                  <div class="plus-icon" style="margin-top:17px;" ng-click="toggleModal()" ng-show="!appWindowVisible" style="diplay:inline-block;"></div>
+                  <div id="appDropDown" style="margin-left:25px; display:inline-block;">
+                    <div class="dropdown" id="dropdownMenu2">
+                      <div class="selectedAppln" ng-show="applicationList.length>0" style="diplay:inline-block;">
+                        <div class="appName">{{applicationList[selectedApplicationIndex].name}}  ({{applicationList[selectedApplicationIndex].noOfInstances}})</div>
+                        <div class="vertical-line" style="height:32px!important;"></div>
+                        <span><div id="appclose" ng-click="openDelAppWindow(selectedApplicationIndex)" style="float:right;margin-top: -23px;">&#10006;</div></span>
+                      </div>
+                      <button class="btn btn-default" ng-show="applicationList.length>0" data-toggle="dropdown" id="appToggle" style="diplay:inline-block;">
+                        <div class="caret"></div>
+                      </button>
+                      <ul class="dropdown-menu" id="appDropDownList">
+                        <li class="dropDrownClass" value="{{$index}}" ng-repeat="app in applicationList" ng-if="selectedApplicationIndex!==$index" ng-click="changeSelectedApplication($index)">
+                          <div class="appName">{{app.name}} ({{app.noOfInstances}})</div>
+                          <div class="vertical-line" style="margin-top:-26px;margin-left:58px;"></div>
+                          <div id="appclose" style="float:right;" ng-click="deleteApp()"></div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div id="appPalette" style="float:right;">
+                    <ul id="shapesPanelBarApp">
+                      <li>
+                        <span class="shapeItem" data-shape='{"type":"epg","Id":"-1","name":"EPG","bdName":"","span":"0","epgSubnets":"0","noOfEndPoints":"0","connectors":[{"name":"bottom"}]}' style="background-position: 0 0" data-role="draggable"></span>
+                      </li>
+                      <li>
+                        <span class="shapeItem" data-type="contract" data-shape='{"type":"contract","Id":"-1","connectors":[{"name":"right"}]}' style="background-position: -50px 0" data-role="draggable"></span>
+                      </li>
+                      <li>
+                        <span class="shapeItem" id="tol3" data-type="contract" data-shape='{"type":"contractl3","Id":"-1","connectors":[{"name":"right"}]}' style="background-position: -300px 0" data-role="draggable"></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div id="appDiagram" style="float:left; margin-top:10px;"></div>
+                <div id="zoomButtons">
+                  <div id="zoomInButton" class="zoomButton" ng-click="zoomInAppDiagram()">+</div>
+                  <div class="zoomButton" ng-click="zoomOutAppDiagram()">-</div>
+                </div>
+              </div>
+            </div>
+            <div id="fabric-right-pane" style="border:1px solid #E3E3E3;">
+              <div class="pane-content">
+                <div class="fabric-header-box">
+                  <!--<div class="fabric-pane-title" style="margin-left:10px; float:left;">FABRIC</div>-->
+                  <div class="fabric-pane-title">FABRIC</div>
+                  <!--<Change Toggle value(1 or 2) below to set default value-->
+                  <div id="fabricPalette" style="float:right;">
+                    <ul id="shapesPanelBarFabric">
+                      <li>
+                        <span class="shapeItem" data-shape='{"type":"vrf","Id":"-1","connectors":[{"name":"left"},{"name":"top"}]}' style="background-position: -250px 0" data-role="draggable"></span>
+                      </li>
+                      <li>
+                        <span class="shapeItem" data-type="bd" data-shape='{"type":"bd","Id":"-1","connectors":[{"name":"left"},{"name":"top"}]}' style="background-position: -100px 0" data-role="draggable"></span>
+                      </li>
+                      <!-- <li>
+                                            <span class="shapeItem"
+                                                  data-shape='{"type":"l2","Id":"-1","connectors":[{"name":"left"},{"name":"top"}]}'
+                                                  style="background-position: -120px 0" data-role="draggable"></span>
+                  </li> -->
+                      <li>
+                        <span class="shapeItem" data-type="l3out" data-shape='{"type":"l3out","Id":"-1","connectors":[{"name":"left"},{"name":"top"}]}' style="background-position: -200px 0" data-role="draggable"></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div id="fabricDiagram" style="position:absolute; float:left; background:#fff; padding-top:8px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div id="appwindow" style="display:none;" ng-include src="'views/addApplication.html'" style="border-radius:4px"></div>
+<div id="tenantwindow" style="display:none;" ng-include src="'views/addTenant.html'" style="border-radius:4px"></div>
+<div id="tenanteditwindow" style="display:none;" ng-include src="'views/editTenant.html'" style="border-radius:4px"></div>
+<div id="delNodeWindow" style="display:none;" ng-include src="'views/delNode.html'" style="border-radius:4px"></div>
+<div id="delAppWindow" style="display:none;" ng-include src="'views/delApp.html'" style="border-radius:4px"></div>
+<modal class="modal" visible="showModal" style="margin-top:100px;" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div id="appWorkflowForm" ng-include src="'views/appWorkflowDialog.html'"></div>
+</modal>

@@ -1,0 +1,20 @@
+.adminUser{
+  color: #ffffff;
+  padding: 4px 10px 0px 0px;
+}
+.adminUser ul{
+  padding: 0px;
+  margin: 0px;
+}
+.adminUser ul li{
+  float: left;
+  background: #1a98ca;
+  cursor: pointer;
+  margin-right: 1px;
+  padding: 5px 12px;
+  list-style-type: none;
+}
+.activeNav,.adminUser ul li:hover{
+  color: #A8A5A5;
+  background: #fff !important;
+}

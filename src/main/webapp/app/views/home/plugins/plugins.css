@@ -1,0 +1,12 @@
+.deviceList{
+	margin-top: 10px;
+}
+.deviceList dd {
+    border: 1px solid #ddd;
+    padding: 8px 12px 8px 12px;
+    color: #7F7F7F;
+    font-size: 13px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    overflow: hidden;
+} 

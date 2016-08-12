@@ -1,0 +1,198 @@
+
+<div ng-cloak>
+    <span id="ruler"></span>
+    <div class="row full-height" ng-show="isProjectVisible">
+        <div class="pa-t-20 pa-b-100 aci-content">
+            <!-- TAB FLATBOX HORIZONTAL - begin -->
+            <div class="ct ct-underline  aci-logical-splitter">
+
+
+                <div class="tab-content clearfix">
+                    <div class="tab-pane active" id="projectstab" >
+                        <div ng-include src="'views/diagrameditor.html'"></div>
+                        <div ng-include src="'views/logicalview.html'"></div>
+                    </div>
+                    <div class="tab-pane" id="physicaltab">
+                     <div ng-include src="'modules/physical/views/phySizerView.html'" ng-controller="physicalController" onload="loadRoomDetails()"></div>
+                        <!--<h3>Physical Screen</h3>-->
+                    </div>
+                   
+                    <!--div class="tab-pane" id="results">
+                        <div ng-include src="'views/sizerResults.html'" onload="getUtilDetails()"></div>
+                    </div-->
+                    <div class="tab-pane" id="template">
+                        <h3>Templates here</h3>
+                    </div>
+                </div>
+
+<!--
+                <div>
+                    <div class="ct-pagitem">Physical</div>
+                    <div ng-include src="'views/physicalSizerView.html'"></div>
+                </div>
+
+                <div>
+                    <div class="ct-pagitem" onclick="getUtilizationDetails();">Sizer Results		
+                    </div>
+					<script>
+					 function getUtilizationDetails(){
+					     var scope = angular.element(document.getElementById('sizer')).scope();
+						 scope.getUtilDetails();
+					 }
+					</script>
+                    <div class="container" id="sizer">
+                        <div class="row">
+                            <div class="span8 offset4">
+                                <h2>Sizer Results</h2>
+                            </div>
+
+                            &lt;!&ndash;div class="span4">
+                                <p class="bo-l-h"><i>Content Here</i></p>
+                            </div>
+
+                            <div class="span8">
+                                <p class="dropcap">Content Here</p>
+                            </div&ndash;&gt;
+                        </div>
+						<div ng-include src="'views/sizerResults.html'"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="ct-pagitem">Templates
+                    </div>
+
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="span4">
+                                <h4>Templates</h4>
+
+                                <div class="dummy-img dummy-img6 ma-b-10"></div>
+
+                                <p class="bo-l-h ma-t-20"><i>Content Here</i></p>
+                            </div>
+
+                            <div class="span4">
+                                <p class="dropcap">Content Here</p>
+                            </div>
+
+                            <div class="span4">
+                                <p>Content Here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            -->
+
+            </div>
+            <!-- TAB FLATBOX HORIZONTAL - end -->
+        </div>
+
+
+        <!--    <div style="margin-top: 1px;" class="full-height">
+                <div class="pa-t-20 pa-b-100 aci-content">
+                    &lt;!&ndash; TAB FLATBOX HORIZONTAL - begin &ndash;&gt;
+                    <div class="ct ct-underline ct-height-auto ma-b-100 aci-logical-splitter">
+
+                        <div>
+                            <div class="ct-pagitem">Logical</div>
+                            &lt;!&ndash;<div>Hello</div>&ndash;&gt;
+                            &lt;!&ndash;<div ng-include src="'views/logicalview.html'" class="full-height"></div>&ndash;&gt;
+                            &lt;!&ndash;<div ng-include src="'views/sample.html'" class="full-height"></div>&ndash;&gt;
+                        </div>
+                        <div>
+                            <div class="ct-pagitem">Physical</div>
+                            <div static-include="views/about.html"></div>
+                        </div>
+
+                        <div>
+                            <div class="ct-pagitem">Sizer Results
+                            </div>
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="span8 offset4">
+                                        <h2>Sizer Results</h2>
+                                    </div>
+
+                                    <div class="span4">
+                                        <p class="bo-l-h"><i>Content Here</i></p>
+                                    </div>
+
+                                    <div class="span8">
+                                        <p class="dropcap">Content Here</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="ct-pagitem">Templates
+                            </div>
+
+                            <div class="container">
+                                <div class="row">
+
+                                    <div class="span4">
+                                        <h4>Templates</h4>
+
+                                        <div class="dummy-img dummy-img6 ma-b-10"></div>
+
+                                        <p class="bo-l-h ma-t-20"><i>Content Here</i></p>
+                                    </div>
+
+                                    <div class="span4">
+                                        <p class="dropcap">Content Here</p>
+                                    </div>
+
+                                    <div class="span4">
+                                        <p>Content Here</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    &lt;!&ndash; TAB FLATBOX HORIZONTAL - end &ndash;&gt;
+                </div>
+
+            </div>-->
+
+    </div>
+
+    <div id="context-menu">
+        <div id="node-preview" class=""></div>
+    </div>
+
+    <!-- Below is not required   -->
+    <div class="row" style="display: none">
+        <div class="col-md-4">
+            <span class="aci img-responsive img-rounded"></span>
+        </div>
+        <div class="col-md-8">
+            <h1 translate="main.title">Welcome, ACI User!</h1>
+
+            <p class="lead" translate="main.subtitle">This is your homepage</p>
+
+            <!--
+                        <div ng-switch="authenticated">
+                            <div class="alert alert-success" ng-switch-when="true"
+                                 translate="main.logged.message" translate-values="{username: '{{account.login}}'}">
+                                You are logged in as user "Admin".
+                            </div>
+
+                            <div class="alert alert-warning" ng-switch-when="false" translate="global.messages.info.authenticated">
+                                If you want to <a href="#/login">authenticate</a>, you can try the default login="admin" and
+                                password="admin".
+                            </div>
+
+                            <div class="alert alert-warning" ng-switch-when="false" translate="global.messages.info.register">
+                                Don't have an account? <a href=\"#/register\">Register</a>
+                            </div>
+                        </div>
+            -->
+
+
+        </div>
+    </div>
+</div>

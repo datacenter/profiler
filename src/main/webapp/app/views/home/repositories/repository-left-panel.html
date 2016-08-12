@@ -1,0 +1,40 @@
+<div class="col-lg-3 col-md-3 col-sm-12 ">
+  <div class="clr leftouterBorder" id="devices-container">
+    <div class="clr deviceHead">
+      <span class="sub_title">DEVICES ({{repoLPCtrl.repoCtrl.devicesList.length}}) </span>
+      <span class="pull-right"><input type="button" class="add_btn" value="+ Add Devices" ng-click="repoLPCtrl.addDevicePopup()" /></span>
+    </div>
+    <div id="leftScrollContainer" ng-style="{height:innerdeviceHeight}">
+      <dl class="innerDeviceShow">
+        <dd ng-repeat="device in repoLPCtrl.repoCtrl.devicesList" ng-class="{activeDevice:$index === repoLPCtrl.repoCtrl.selectedDeviceIndex}" class="device_dd" ng-click="repoLPCtrl.repoCtrl.setSelectedDeviceIndex($index)"> 
+            <div class="deleteDevice edit_deleteAction"  >
+              <i class="fa fa-pencil" title="Edit Device" ng-click="repoLPCtrl.editDevicePopup($event, device)"></i> | <i class="fa fa-close"  title="Delete Device" ng-click="repoLPCtrl.deleteDevicePopup($event, device)"></i>
+            </div>
+          <div ng-model="device_name">{{device.name}}
+            <!-- <span class="txtOrange">({{device.itmesCount}} Items)</span> --></div>
+          <div>IP : {{device.ipAddress}}</div>
+          
+        <!-- IMPORTED STATUS OF DEVICE -->
+          <div ng-show="device.importedOn">Created On:&nbsp; {{device.importedOn | date : 'longDate'}}</div>
+          <!-- IMPORT SUCCESS  -->         
+          <div ng-show="device.importedStatus === repoLPCtrl.IMPORT_STATUS.SUCCESS">
+            <span class="pull-left">Status:&nbsp; </span> 
+            <span class="pull-left text-success">Success</span>
+          </div>
+          <!-- IMPORT PROGRESS  -->         
+          <div ng-show="device.importedStatus === repoLPCtrl.IMPORT_STATUS.PROGRESS">
+            <span class="pull-left">Status:&nbsp; </span> 
+            <span class="pull-left proLoading"><uib-progressbar class="progress-striped active" max="100" value="100" type="pending"><i>Importing</i></uib-progressbar></span>
+          </div>
+          <!-- IMPORT FAIL  -->         
+          <div ng-show="device.importedStatus === repoLPCtrl.IMPORT_STATUS.FAIL">
+            <span class="pull-left">Status:&nbsp; </span> 
+            <span class="pull-left text-danger"> Failed </span>
+          </div>
+
+        </dd>
+      </dl>
+      <div mpl-progress id="get-devices-request"></div>
+    </div>
+  </div> 
+</div>

@@ -1,0 +1,8 @@
+{
+  "id": 1,
+  "name": "100bao",
+  "etherType": "ip",
+  "ipProtocol": "tcp",
+  "srcPort": "3468",
+  "destPort": null
+}

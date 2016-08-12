@@ -1,0 +1,34 @@
+<nav class="navbar navbar-fixed-top mpl-navbar" ng-controller="navbarController as navCtrl">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Brand" src="images/cisco_logo_white.png">
+      </a>
+      <p class="navbar-text title">Application Profiler</p>
+    </div>
+    <span class="navbar-right">
+        <span class="tab-group">
+          <a ui-sref="home.projects" class="navbar-link tab-item" 
+              ng-class="{'active':root.currentState==='home.projects'}">Project</a>
+          <a ui-sref="home.plugins" class="navbar-link tab-item" 
+              ng-class="{'active':root.currentState==='home.plugins'}">Plugins</a>
+          <a ui-sref="home.repositories" class="navbar-link tab-item" 
+              ng-class="{'active':root.currentState==='home.repositories'}">Repository</a>
+          <a ui-sref="home.users" class="navbar-link tab-item" 
+              ng-if="navCtrl.userInfo.role==='ROLE_ADMIN'" 
+              ng-class="{'active':root.currentState==='home.users'}">User Management</a> 
+        </span>
+    <div class="btn-group mpl-drop-down-menu" ng-class="{'open':navCtrl.canShowLogoutMenu}">
+      <a type="button" class="dropdown-toggle" ng-click="navCtrl.toggleLogoutDropdown($event)">
+        <i class="fa fa-user userIcon"></i>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="#" ng-click="navCtrl.logout($event)">Logout</a></li>
+        <!-- <li><a href="#">Another action</a></li> -->
+        <!-- <li role="separator" class="divider"></li> -->
+        <!-- <li><a href="#">Separated link</a></li> -->
+      </ul>
+    </div>
+    </span>
+  </div>
+</nav>

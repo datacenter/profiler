@@ -1,0 +1,45 @@
+#Web Server properties
+server:
+    port: 8080
+
+#https Configuration
+keystorefile: keystore.p12
+keystorepass: maplelabs
+sslport: 8443
+
+#Spring properties
+spring:
+  datasource:
+    serverName: applicationprofiler
+    driverClassName: com.mysql.jdbc.Driver
+    databaseName: applicationprofiler
+    url: jdbc:mysql://localhost:3306/applicationprofiler
+    user: root
+    password: mysql
+    prepStmtCacheSize: 250
+    prepStmtCacheSqlLimit: 2048
+    cachePrepStmts: true
+    useServerPrepStmts: true
+    dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
+    poolName: profilerConnectionPool
+    maximumPoolSize: 50
+    minimumIdle: 6
+    connectionTimeout: 30000
+    idleTimeout: 30000
+    
+  jpa:
+    show-sql : true
+    
+logging:
+  file: my.log
+  level:
+    org.hibernate : DEBUG
+    
+paulo:
+  plugin:
+    url : $$
+    filepath: predefinedApplicationPauloAlto.xml
+    device : 1
+ 
+
+    

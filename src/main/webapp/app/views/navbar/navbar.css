@@ -1,0 +1,58 @@
+.mpl-navbar {
+  margin: 0px;
+  background: #03a2e3;
+}
+
+.mpl-navbar .navbar-brand {
+  padding: 2px 0px;
+}
+
+.mpl-navbar .title {
+  color: #fff;
+  font-size: 18px;
+  margin: 12px 3px;
+}
+
+.mpl-navbar .tab-group {
+    top: 11px; 
+    position: relative;
+}
+
+.mpl-navbar .tab-group .tab-item {
+  background-color: #1a98ca;
+  color: #fff;
+  padding: 5px 12px;
+  margin-right: -3px;
+}
+
+.mpl-navbar .tab-group .tab-item:hover {
+  background-color: #fff;
+  color: #A8A5A5;
+  text-decoration: none;
+}
+
+.mpl-navbar .tab-group .tab-item.active {
+  background-color: #fff;
+  color: #A8A5A5;
+  text-decoration: none;
+}
+
+.mpl-navbar .mpl-drop-down-menu {
+  padding: 0px 10px;
+  position: relative;
+  top: 10px;
+}
+
+ .userIcon{
+    background: #FFF;
+    padding: 9px 11px;
+    border-radius: 100%;
+    color: #949494;
+}
+
+.logOut,
+.logOut:hover{
+    color: #fff;
+    padding: 0px 10px;
+    text-decoration: none;
+}

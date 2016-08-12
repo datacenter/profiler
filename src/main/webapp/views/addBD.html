@@ -1,0 +1,22 @@
+<div class="aci-dialog-content-div">
+    <form name="BdForm" ng-submit="BdForm.$valid && validateAddBD($event)">
+	<!-- Use the form instead of attributes -->
+        <div class="aci-dialog-content-span">
+            <label class="aci-textbox-label" for="name" style="padding-right:20px; width:20%">Name</label>
+            <input type="text" id="name" ng-model="addBdForm.name" class="aci-state-disabled" disabled style="width:60%"/>
+        </div>
+        </br>
+        <div class="aci-dialog-content-span">
+            <label class="aci-textbox-label" for="subnets" style="padding-right:20px; width:20%">Subnets</label>
+             <input type="number" id="subnets" ng-model="addBdForm.subnets" class="aci-textbox" max="{{maxBdSubnets}}" min="{{minBdSubnets}}" required style="width:60%"/>
+        </div>
+        </br>
+        </br>
+        <div class="aci-dialog-content-span">
+            <aci-button class="aci-primary" type="submit" style="float : right;">Save</aci-button>
+            <aci-button type="button" on-click="onCancelBD()" style="float : right;margin-right: 10px;">Cancel</aci-button>
+        </div>
+    </form>
+</div>
+
+

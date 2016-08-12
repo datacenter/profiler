@@ -1,0 +1,32 @@
+<div class="clr">
+  <div class="projectContainer">
+    <div class="pull-left projectName">Users</div>
+    <div class="pull-right marginright15 margintop5">
+      <input type="button" class="btn gray_btn" value="+ Add User" ng-click="usersCtrl.addUserPopup()" />
+    </div>
+  </div>
+  <div class="clr innerprojectContainer">
+    <div class="userTable">
+      <table class="table  table-bordered fixedTable" cellpadding="0" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Authentication</th>
+            <th>Email Id</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="user in usersCtrl.usersList">
+            <td>{{user.username}}</td>
+            <td>{{user.role}}</td>
+            <td>{{user.authentication}}</td>
+            <td>{{user.email}}</td>
+            <td><a href="javascript:void(0)" ng-click="usersCtrl.editUserPopup(user)">Edit</a>&nbsp; | &nbsp;<a href="javascript:void(0)" ng-click="usersCtrl.deleteUserPopup(user)">Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

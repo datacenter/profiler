@@ -1,0 +1,257 @@
+.project_title {
+  color: #fff;
+  font-size: 18px;
+  position: relative;
+  top: -4px;
+}
+
+.headerContainer img {
+  position: relative;
+  top: -8px;
+}
+
+.headerContainer {
+  position: relative;
+  top: 8px;
+}
+.grayText{
+  color: #797979;
+  letter-spacing: 0.7px;
+}
+.projectContainer {
+  padding: 2px 0px 8px 0px;
+  border-bottom: 1px solid #ebe9e9;
+  overflow: hidden;
+  background: #fff;
+}
+
+.projectName {
+  font-size: 16px;
+  color: #666;
+  text-indent: 20px;
+  position: relative;
+  top: 8px;
+  margin-bottom: 10px;
+}
+
+.clr {
+  clear: both;
+}
+
+.innerprojectContainer {
+  padding: 15px;
+}
+
+.innerprojectContainer dl.outerProject {
+  padding: 0px;
+  margin: 0px;
+}
+
+.innerprojectContainer dl.outerProject dd {
+  width: 23.8%;
+  float: left;
+  margin: 0px 15px 15px 0px;
+  border: 1px solid #cdcdcd;
+}
+
+.innerprojectContainer dl.outerProject dd .proHeader {
+  border-bottom: 1px solid #cdcdcd;
+  padding: 12px 10px 8px 14px;
+  background: #f4f4f4;
+  position: relative;
+  z-index: 8;
+}
+
+.innerprojectContainer dl.outerProject dd .proHeader h5 {
+  font: 15px HelveticaNeueLTStd-Roman;
+  color: #868686;
+  letter-spacing: 0.7px;
+  padding: 0px;
+  margin: 0px;
+  font-family: HelveticaNeueLTStd-Roman;
+}
+
+.innerprojectContainer dl.innerValue {
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+}
+
+.innerprojectContainer dl.innerValue dd {
+  font-size: 16px;
+  color: #747474;
+  border: 0px;
+  width: 33%;
+  margin: 0px;
+  text-align: center;
+  letter-spacing: 0.7px;
+  padding: 15px 0px;
+}
+
+.innerValue dd div:last-child {
+  font-family: HelveticaNeueLTStd-Lt;
+  letter-spacing: 0.8px;
+  font-size: 14px;
+}
+
+.view_btn,
+.view_btn:hover {
+  font: 14px HelveticaNeueLTStd-Roman;
+  color: #0e99da;
+  width: 90%;
+  margin: 16px 16px;
+  line-height: 37px;
+  background: #f9f9f9;
+  border: 1px solid #cdcdcd;
+  letter-spacing: 0.7px;
+  text-decoration: none !important;
+  text-align: center;
+  display: block;
+}
+
+.date_Txt {
+  color: #929292;
+  font: 13px Helvetica-55-Roman;
+  letter-spacing: 0.7px;
+}
+
+.addprojectView {
+  background: #fff;
+  border-radius: 0px;
+  padding: 2px 12px 0px 10px;
+  overflow: hidden;
+}
+
+.addprojectView h5 {
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 12px;
+  padding-top: 0px;
+  margin-top: 7px;
+  color: #666;
+}   
+.lightBoxPopup {
+  background: #4C4C4C;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 100;
+  bottom: 0px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  opacity: 0.8;
+}
+/*
+.a-widget .a-header { 
+  padding-bottom: 15px;
+}*/
+
+.a-window-title {
+  color: #858585;
+  font-size: 17px;
+  position: relative;
+  top: 3px;
+  left: -2px;
+}
+
+.div.a-window-content {
+  margin-top: 0px;
+}
+
+.a-window-titlebar .a-state-hover {
+  background: none;
+  border: none !important;
+  color: #858585 !important;
+}
+
+div.a-window {
+  border-radius: 5px;
+}
+
+.breadcrumb {
+  background: #f9f9f9;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 10px 15px;
+  margin-bottom: 0px;
+}
+
+.deleteIcon {
+  float: right;
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 10px;
+  color: #797979;
+  display: none;
+}
+.a-window-actions a.a-window-action, .a-window-actions a:hover {
+    background: #fff !important;
+    opacity: 1 !important;
+    top: 0px !important;
+    position: relative !important;
+    border: 0px !important;
+    padding: 2px;
+}
+@media screen and (min-width: 950px) and (max-width: 1278px) {
+  .innerprojectContainer dl.outerProject dd {
+    width: 48.4%;
+    float: left;
+  }
+  .innerprojectContainer dl.innerValue dd {
+    border: 0px;
+    width: 33%;
+  }
+  .view_btn {
+    width: 93%;
+  }
+}
+
+@media screen and (min-width: 450px) and (max-width: 950px) {
+  .innerprojectContainer dl.outerProject dd {
+    width: 100%;
+  }
+  .innerprojectContainer dl.innerValue dd {
+    border: 0px;
+    width: 33%;
+  }
+  .view_btn {
+    width: 95%;
+  }
+}
+
+.projectBox:hover .deleteIcon{
+  display: initial;
+}
+.modal-backdrop{
+   z-index: 10007 !important;
+}
+.modal-open .modal{
+      z-index: 10008 !important;
+}
+.searchContainer dd{
+  float: left;
+}
+.searchContainer dd:nth-child(1){
+  width: 10%;
+}
+.searchContainer dd:nth-child(2){
+  width: 35%;
+}
+.searchContainer dd:nth-child(3){
+  width: 55%;
+  float:right;
+}
+.tablehover tbody tr{
+  cursor: pointer;
+}
+.activeRow{
+  background: #eee !important;
+}
+.red_txt{
+  color: #e34b00;
+  font-size: 17px;
+}
+#tenant-pane,.tenantView{
+      overflow: initial !important;
+}

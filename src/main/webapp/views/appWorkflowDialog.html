@@ -1,0 +1,151 @@
+<div class="aci-dialog-content-div" id="appOuterContainer">
+  <form class="formDataStyle" name="appDialogForm" id="appDialogForm">
+
+    <div>
+      <br>
+      <div class="aci-dialog-content-span">
+        <label class="appDialog-fonts">Application Name</label>
+        <br>        
+        <input type="text" class="a-textbox aci-field appDialog-appName" id="appName" ng-model="addApp.name" required/>
+      </div>
+      <br>
+
+      <div class="aci-dialog-content-span no-of-instances">
+        <label class="appDialog-fonts">No. of Instances</label>
+        <br>
+        <input type="number" id="addAppInst" ng-model="addApp.noOfInstances" class="appDialog-input-width" min="1"/>
+      </div>
+      <br>
+      <br>  
+
+      <div class="aci-dialog-content-span">
+       <label class="tooltip appDialog-fonts appArrow" title= "Add a predefined application with preset configurations of ACI constructs" for="appType"><span title=" " style="font-size:14px">Application Type</span></label>
+       <br>
+       <select id="appType" ng-model="addApp.model"  required validationMessage="Select Application Type" placeholder="Select Application Type" class="aci-field appDialog-input-width" ng-change="onAppTypeChange()">                  
+       </select>
+       <div id="validationError" ng-show="appTypeValid" style="font-size:13px;color:red;margin-left:2%">Please Select Application Type</div>
+      <br>
+      <br>
+      <br>
+     </div>     
+   </div>
+   <br>
+   <br>  
+   <div>
+    <div class="aci-dialog-content-span" style="padding-top:30px">   
+      <table id= "app-dialog-table" class="dialog-radio-table">
+       <tr>
+        <td>
+          <label class="appDialog-fonts" for="appType" style="margin-left:-2px">BD's</label> 
+        </td>
+      </tr>
+
+      <tr>
+
+        <td style="width:348px;">
+          <input type="radio" name="uniqueBDRadio" class="aci-radio" checked="checked" ng-model="addApp.configuration.bdPolicy" value="Unique">
+          <label class="aci-radio-label appDialog-fonts tooltip appArrow" title="Each application instance uses a separate Bridge Domain" for="uniqueBDRadio"><span title="" style="font-size:14px">Unique BD per Instance</span></label>
+        </td>
+        <td>
+          <input type="radio" name="uniqueBDRadio" class="aci-radio" ng-model="addApp.configuration.bdPolicy" value="Default">
+          <label class="aci-radio-label appDialog-fonts tooltip appArrow" title="Each application instance reuses VRF’s default BD" for="uniqueBDRadio"><span title="" style="font-size:14px">Use Default BD</span></label>
+        </td>    
+      </tr>   
+    </table>
+
+    <table class="dialog-radio-table">
+      <tr>
+       <td>
+        <label class="appDialog-fonts" for="appType" style="margin-left:-2px">Subnets</label>
+      </td>
+    </tr>
+
+    <tr>          
+      <td style="width:348px;">
+        <input type="radio" name="uniqueSubnet" class="aci-radio" checked="checked" ng-model="addApp.configuration.subnetPolicy" value="Unique">
+        <label class="aci-radio-label appDialog-fonts tooltip appArrow" title="Each EPG uses a separate Subnet within the BD" for="uniqueSubnet"><span title="" style="font-size:14px">Unique BD Subnet per EPG</span></label>
+      </td>
+      <td>
+        <input type="radio" name="uniqueSubnet" class="aci-radio" ng-model="addApp.configuration.subnetPolicy" value="Default">
+        <label class="aci-radio-label appDialog-fonts tooltip appArrow" title="All EPGs use BD’s common Subnet" for="uniqueSubnet" ><span title="" style="font-size:14px">Use Default Subnet</span></label>
+      </td>
+    </tr> 
+  </table>   
+</div>        
+</div>
+
+<br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<div>
+  <div class="aci-dialog-content-span">
+   <label class="appDialog-fonts epg-type-dialog tooltip appArrow" title="Number of endpoints within an EPG" for="appType"><span title=" " style="font-size:14px">EPG Scale</span></label>  
+   <input id="epg-slider" type="range" min="1" max="3" step="0.0025" value="2" class="epg-slider-pos" ng-model="addApp.configuration.epgComplexity" ng-mouseenter="changeSliderPos('epg-slider')"  ng-mousemove="changeSliderPos('epg-slider')" ng-mouseleave="changeSliderPos('epg-slider')">   
+   <div class="epg-slider-values">
+    <p class="tooltip" title="5 End Points per EPG" style="margin-left:5%;float:left"><span title="">Small</span></p>
+    <p class="tooltip" title="25 End Points per EPG" style="margin-left:24%;float:left"><span title="">Medium</span></p>
+    <p class="tooltip lastTooltip" title="50 End Points per EPG" style="margin-left:28%;float:left"><span title="">Large</span><p>
+    </div> 
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div class="aci-dialog-content-span"> 
+   <label class="appDialog-fonts epg-type-dialog tooltip appArrow" title="Number of filters within a contract"><span title="" style="font-size:14px;font-family:sourceSansPro-Regular">Contract Scale</span></label>     
+   <input id="contract-complexity-slider" type="range" min="1" max="3" step="0.0025" value="2"  ng-model="addApp.configuration.contractComplexity" style="width:263px" class="epg-slider-pos" ng-mouseenter="changeSliderPos('contract-complexity-slider')"  ng-mousemove="changeSliderPos('contract-complexity-slider')" ng-mouseleave="changeSliderPos('contract-complexity-slider')">
+   <div class="epg-slider-values">
+      <p class="tooltip contractComplexitytooltip" title="2 Filters for Inter EPG Contracts" style="margin-left:5%;float:left"><span title="">Low</span></p>
+      <p class="tooltip medContractComplexity" title="4 Filters for Inter EPG Contracts" style="margin-left:27%;float:left"><span title="">Medium</span></p>
+      <p class="tooltip contractComplexitytooltip lastTooltip" title="6 Filters for Inter EPG Contracts" style="margin-left:28%;float:left"><span title="">High</span><p>
+   </div>         
+  </div>
+  <br>
+  <br>
+  <br>   
+   <div class="aci-dialog-content-span">
+   <label class="appDialog-fonts epg-type-dialog tooltip appArrow tooltipwidth"  title="Enable Contract between external facing EPG and Local or Common L3out" ><span title="" style="font-size:14px">L3Out</span></label>
+    <div style="margin-top:-18px">
+      <input type="checkbox" id="extConnectivity" class="a-checkbox"  ng-model="addApp.configuration.l3outEnabled" checked="checked"">
+      <label class="a-checkbox-label checkbox-width-dialog appDialog-fonts checkBox-size" style="margin-top: 0px" for="extConnectivity">Enable</label>
+    <div>
+
+ </div>
+
+  <!--<br>
+ -->  <!-- <div class="aci-dialog-content-span"> 
+   <label class="appDialog-fonts epg-type-dialog tooltip appArrow"  title="Enable Contract between external facing EPG and L3Out of Common" ><span title="" style="font-size:14px">L3Out</span></label>     
+   <input id="l3-slider" type="range" min="1" max="3" step="0.0025" value="2"  ng-model="addApp.configuration.l3outComplexity" style="width:263px" class="epg-slider-pos" ng-mouseenter="changeSliderPos('l3-slider')"  ng-mousemove="changeSliderPos('l3-slider')" ng-mouseleave="changeSliderPos('l3-slider')">
+    <div style="margin-top:-18px">
+      <input type="checkbox" id="extConnectivity" class="a-checkbox"  ng-model="addApp.configuration.l3outEnabled" checked="checked" ng-change="l3SliderEnable()">
+      <label class="a-checkbox-label checkbox-width-dialog appDialog-fonts checkBox-size" style="margin-top: 0px" for="extConnectivity">Enable</label>
+    <div>
+   
+   <div class="epg-slider-values" style="margin-top:0px">
+      <p class="tooltip tooltipCorrection" title="2 External Connectivity" style="margin-left:5%;float:left"><span title="">Low</span></p>
+      <p class="tooltip tooltipCorrection" title="4 External Connectivity" style="margin-left:27%;float:left"><span title="">Medium</span></p>
+      <p class="tooltip tooltipCorrection lastTooltip" title="6 External Connectivity" style="margin-left:28%;float:left"><span title="">High</span><p>
+   </div>      
+  </div> -->
+<br>
+
+  <div class="aci-dialog-content-span">
+    <label class="appDialog-fonts epg-type-dialog tooltip appArrow tooltipwidth" title="Enable contract between each EPG within application and Shared Services of Common"><span title="" style="font-size:14px">Shared Services</span></label>
+<div> 
+    <input type="checkbox" id="sharedService" class="a-checkbox "  ng-model="addApp.configuration.sharedServiceEnabled" checked="checked" >
+    <label class="a-checkbox-label checkbox-width-dialog checkBox-size appDialog-fonts" style="margin-top:-34px" for="sharedService">Enable</label>
+<div>
+    
+  </div> 
+</div>
+<br>
+<br>
+</div>
+</form>
+</div>
+

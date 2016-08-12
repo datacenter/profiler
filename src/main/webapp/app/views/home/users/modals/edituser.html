@@ -1,0 +1,38 @@
+<div class="addprojectView clr">
+  <div class="modal-header">
+    <h3 class="modal-title">Edit User</h3>
+    <i class="fa fa-close closeIcon" ng-click="$dismiss()"></i>
+  </div>
+  <form name='editUserForm' id='editUserForm' novalidate mpl-form-validation>
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="user-name form-control" placeholder="Name" name="username" required ng-model="popupCtrl.userObject.username" />
+      <p class="help-block">Enter Name</p>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class='user-pwd form-control' placeholder="enter password"  name="password" required ng-model="popupCtrl.userObject.password" />
+      <p class="help-block">Enter Password</p>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class='user-email form-control' placeholder="Type your email" name="email" required ng-model="popupCtrl.userObject.email" />
+      <p class="help-block">Enter Email</p>
+    </div>
+    <div class="form-group">
+      <label>Role</label>
+      <select class='user-role form-control' ng-model='popupCtrl.userObject.role'  name="userrole" required ng-options='userRole for userRole in  popupCtrl.userRoles'>
+      </select>
+      <p class="help-block">Select User Role</p>
+    </div>
+    <div class="form-group">
+      <label>Authentication</label>
+      <select class='user-auth form-control' required ng-model='popupCtrl.userObject.authentication'  name="userauthtype" required ng-options='authType for authType in  popupCtrl.authenticationTypes'>
+      </select>
+      <p class="help-block">Select Authentication Type</p>
+    </div>
+    <div class="button_footer">
+      <input value="Submit" type="submit" class="a-button add-tenant-buttons" ng-click='popupCtrl.editUser(popupCtrl.userObject)' />
+    </div>
+  </form>
+</div>

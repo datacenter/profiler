@@ -1,0 +1,145 @@
+<div class="col-lg-9 col-md-9 col-sm-12">
+  <div class="outerBorder clr" id="rightScrollContainer">
+
+    <div class="clr margintop15">
+      <dl class="filterContainer">
+        <dd>
+          <span class="sub_title">REPOSITORY </span>
+         <!--  <span><input type="button" value="Contact" ng-click="repoRPCtrl.showObjectDetails()" /></span> -->
+          <!-- <span class="txtOrange">6 ITEMS</span> -->
+          <div>{{repoRPCtrl.repoCtrl.selectedDevice.name}}</div>
+        </dd>
+        <!-- <span ng-hide="repoRPCtrl.repoCtrl.selectedDevice.importedStatus === repoRPCtrl.IMPORT_STATUS.NOT_IMPORTED">  -->
+        <!-- filter ui items starts  -->
+        <dd>
+          <div>Filter by type:</div>
+          <select ng-model="repoRPCtrl.repoFilter.type" ng-options="value.repoTypeFilterQueryString as value.lable for (key, value) in ::repoRPCtrl.OBJECT_TYPES">
+          </select>
+        </dd>
+        <dd>
+          <div>Imported Date</div>
+          <div class="pos-abs dateDetails">
+            <span>
+            <label class="input" > <i class="icon-append fa fa-calendar" ng-click="repoRPCtrl.canShowstartDateCalPopup = true"></i>
+                          <input type="text" name="startdate" placeholder="start date" uib-datepicker-popup="{{repoRPCtrl.dateFormat}}" ng-model="repoRPCtrl.startDate" show-weeks="false" show-button-bar="false" is-open="repoRPCtrl.canShowstartDateCalPopup"/>
+                        </label>
+                     </span>
+            <span>
+            <label class="input"> <i class="icon-append fa fa-calendar" ng-click="repoRPCtrl.canShowEndDateCalPopup = true" ></i>
+                        <input type="text" name="enddate" placeholder="end date" show-weeks="false" show-button-bar="false" uib-datepicker-popup="{{repoRPCtrl.dateFormat}}" ng-model="repoRPCtrl.endDate" is-open="repoRPCtrl.canShowEndDateCalPopup" />
+                      </label>
+                     </span>
+          </div>
+        </dd>
+        <dd>
+          <div>&nbsp;</div>
+          <div class="input-group searchBox">
+            <input type="text" class="form-control input-lg" ng-model="repoRPCtrl.repoFilter.searchString" placeholder="Search" />
+            <i class="glyphicon glyphicon-search searchIcon"></i>
+          </div>
+          <input type="button" class="add_btn" value="Go" ng-click="repoRPCtrl.getRepos(true, true)">
+        </dd>
+        <!-- </span> --> 
+        <!-- filter ui items ends  -->
+      </dl>
+    </div>
+    <div class="pos-rel">  
+      <div class="repos-list">
+        <table cellpadding="0" cellspacing="0" class="table table-bordered fixedTable" ng-hide="(repoRPCtrl.repoCtrl.selectedDevice.importedStatus === repoRPCtrl.IMPORT_STATUS.FAIL || repoRPCtrl.repoCtrl.selectedDevice.importedStatus === repoRPCtrl.IMPORT_STATUS.NOT_IMPORTED)">
+          <thead>
+            <tr>
+              <th v-align="middel">
+                <label>
+                  <input type="checkbox" />
+                </label>
+              </th>
+              <th>Source Device</th>
+              <th>Object Type</th>
+              <th>Object Name (Internal)</th>
+              <th>Object Name (User)</th>
+              <th>Object Version</th>
+              <th>Imported On</th>
+              <th>Audited On</th>
+              <th>Audit Status</th>
+              <!-- <th><div style="visibility:hidden"><i class="fa fa-pencil cursor" ng-click="editRepositoryRecordPopup(repo)"></i>&nbsp; |&nbsp; <i class="fa fa-trash-o cursor" ng-click="deleteRepPopup(repo)"></i></div></th> -->
+            </tr>
+          </thead>          
+          <tbody ng-show="repoRPCtrl.isRepoRequestInProgress">            
+            <tr>
+              <td colspan="9"><div mpl-progress id="repo-records-request"></div></td>
+            </tr>
+          </tbody>
+          <tbody ng-show="!repoRPCtrl.isRepoRequestInProgress && repoRPCtrl.reposList.length===0">
+            <tr>
+              <td colspan="9">No Data Available</td>
+            </tr>
+          </tbody>
+          <tbody ng-show="!repoRPCtrl.isRepoRequestInProgress && repoRPCtrl.reposList.length!==0">
+            <tr class="pointer" ng-class="{'active':repoRPCtrl.selectedRow===$index}" ng-repeat="repo in repoRPCtrl.reposList track by $index | limitTo : 50"  ng-click="repoRPCtrl.showObjectDetails(repo, $index)">
+              <td>
+                <label>
+                  <input type="checkbox" ng-checked="repoRPCtrl.isRecordSelected($index)" ng-click="repoRPCtrl.toggleRepoRecordSelection($event, $index)" />
+                </label>
+              </td>
+              <td>{{repo.sourceDevice}}</td>
+              <td>{{repo.objectType}}</td>
+              <td>{{repo.objectName}}</td>
+              <td>{{repo.objectName}}</td>
+              <td>{{repo.objectVersion}}</td>
+              <td>{{repo.importedOn}}</td>
+              <td>{{repo.auditedon}}</td>
+              <td>{{repo.auditstatus}}</td>
+              <!-- <td nowrap><i class="fa fa-pencil cursor" ng-click="editRepositoryRecordPopup(repo)"></i>&nbsp; |&nbsp; <i class="fa fa-trash-o cursor" ng-click="deleteRepPopup(repo)"></i></td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tablePaginationPart" ng-hide="repoRPCtrl.reposList.length===0">
+        <span class="pull-left"><a href="javascript:void(0)" class="gray_link" ng-click="repoRPCtrl.deleteRepoRecords()"> Delete</a></span> 
+        <span class="pull-left marginleft10"><a href="javascript:void(0)" class="gray_link" ng-click="repoRPCtrl.editRepoPopup()"> Edit</a></span>
+        <span class="pull-left">Page <input type="text" size="2" ng-model="repoRPCtrl.pageNumToGo"/> &nbsp;<a href="javascript:void(0)" class="add_btn" ng-click="repoRPCtrl.setPage(repoRPCtrl.pageNumToGo)">Go</a></span>
+        <span class="pull-right"><uib-pagination boundary-links="false" total-items="repoRPCtrl.pagination.totalItems" items-per-page="repoRPCtrl.pagination.itemsPerPage" max-size="repoRPCtrl.pagination.maxSize" ng-model="repoRPCtrl.pagination.currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-change="repoRPCtrl.onPageChanged()"></uib-pagination> 
+        </span>
+      </div>
+    </div>  
+  </div>
+
+   <!-- Conditional Import messages -->
+  <!-- do not have repo records and No Repo Request in progress  -->
+  <div class="importDevice absolute-center" align="center" ng-show="!repoRPCtrl.isRepoRequestInProgress && repoRPCtrl.reposList.length===0 && repoRPCtrl.isViewLoaded">
+    
+    <!-- Do not have any device -->
+    <div ng-show="repoRPCtrl.repoCtrl.devicesList.length==0">
+      <h2>Currently No repository objects</h2>
+      <h5>Add a device and import configuration</h5>
+    </div>
+
+    <!-- have a device selected & is not imported -->
+    <div ng-show="repoRPCtrl.repoCtrl.selectedDevice.importedStatus === repoRPCtrl.IMPORT_STATUS.NOT_IMPORTED">
+      <h2>No repository objects imported from <strong>{{repoRPCtrl.repoCtrl.selectedDevice.name}}</strong> </h2>
+      <h5>click below to import</h5>
+      <input type="button" class="" value="Import" ng-click="repoRPCtrl.importRepoRecords(repoRPCtrl.repoCtrl.selectedDevice)" />
+    </div>   
+
+    <!-- have a device selected & last imported failed -->
+    <div ng-show="repoRPCtrl.repoCtrl.selectedDevice.importedStatus === repoRPCtrl.IMPORT_STATUS.FAIL">
+      <h2>Import of <strong>{{repoRPCtrl.repoCtrl.selectedDevice.name}}</strong> was failed </h2>
+      <h5>click below to re-import</h5>
+      <input type="button" class="" value="Import" ng-click="repoRPCtrl.importRepoRecords(repoRPCtrl.repoCtrl.selectedDevice)" />
+    </div> 
+
+    <!-- have a device selected & it's data/configurations are importing -->
+    <div ng-show="repoRPCtrl.repoCtrl.selectedDevice.importedStatus === repoRPCtrl.IMPORT_STATUS.PROGRESS">
+      <h2>Importing Repository</h2>
+      <p>
+        <uib-progressbar class="progress-striped active" max="100" value="100" type="pending">
+          <i>Importing</i>
+        </uib-progressbar>
+      </p>
+    </div>
+    
+  </div>
+
+  
+
+</div>

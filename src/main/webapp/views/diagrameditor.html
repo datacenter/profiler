@@ -1,0 +1,609 @@
+<script id="epgTemplate" type="text/x-aci">
+    <div class="epgDialog">
+        <ul class="fieldlist" style="width:350px;">
+            <li ng-hide="true">
+                <label>Name</label>
+				<input type="text" class="a-textbox aci-field" name="name" id="epgName" maxlength="10"/>
+            </li>
+			</br>
+            <li style="margin-top:-35px;">
+		
+                <label class="tooltip diagramArrow diagramToolTip" title="Number of VM or Baremetal endpoints in the EPG"><span title="" id="endPointsTitle">End Points</span></label>
+				<input type="number" id="epgEndPoints" class="epgEndpoints" name="noOfEndPoints" 
+						max="#= data.addEpgMaxEndPoints #" min="#= data.addEpgMinEndPoints #" required/>
+						
+			</li>
+			<li style="margin-top:-70px;">
+             
+                <label class="tooltip diagramArrow diagramToolTip" id="epgSpanTooltip" title="Number of leafs where the EPG is to be hosted.These switches should support the policies for EPG"><span title="" id="epgSpanTitle">Span</span></label>
+                
+                <input type="number" id="epgSpan" class="epgSpan" name="span" max="#= data.addEpgMaxSpan #"
+                       min="#= data.addEpgMinSpan #"/>
+			</li>
+			<li style="margin-top:-55px;">
+                <label class="tooltip diagramArrow diagramToolTip" id="epgSubnetsTooltip" title="Number of EPG subnets. This should be 0 if the subnets are defined in the BDs"><span title="" id="epgSubnetsTitle">Subnets</span></label>
+                <input id="epgSubnets" type="number" name="epgSubnets" class="epgSubnets"
+                       max="#= data.addEpgMaxSubnets #" min="0"/>
+					
+            </li>
+			</br>
+            <li>
+                <label class="tooltip diagramArrow diagramToolTip bdTooltip" title="Broadcast domain used by the EPG.  EPG can use a BD present in local VRF or Common VRF"><span title=" ">BD</span></label>
+                </br>
+                <select id="epgBd" name="bdName" placeholder="Select BD..." class="disabledDropdown" required/>
+            </li>
+			</br>
+            <!-- @Manohar::start :: this is commented / hidden to not increase the contracts and/or filters count on creating an EPG  -->
+            <span style="display:none;">
+                <li>
+                    <label>Shared Services</label><hr/>
+                </li>
+                </br>
+                <li>
+                    <input type="checkbox" id="shared-checkbox" name="sharedServicesEnabled" class="a-checkbox">
+                    <label class="a-checkbox-label" id="shared-checkbox-label" for="shared-checkbox">Enable</label>
+                    <div class="filtersEPG">
+                     <label class="tooltip" title="Number of unique access control list elements" id="epgFilterTooltip"><span title="" id="sharedFilterTitle">Filter &nbsp &nbsp</span></label>
+                    <input type="number" id="sharedfilter" class="sharedfilter" name="noOfsharedServiceFilter" min="0" required/>
+                    </div>
+                </li>  
+                </br>
+            </span>
+        </ul>
+    </div>
+</script>
+
+<script id="appTemplate" type="text/aci">
+<ul class="fieldlist" style="width:280px">
+    <li>
+        <label style="width:100%">Application Name</label>
+        <input type="text" class="a-textbox aci-field" id="editAppName" name="name"/>
+    </li>
+    </br>
+     <li>
+        <label style="width:100px;padding-right:10px;">No. of instances</label>
+        <input type="number" id="appInstances" min=1 name="noOfInstances"/>
+    </li>
+</ul>
+
+</script>
+ 
+<script id="contractTemplate" type="text/x-aci-template">
+    <ul class="fieldlist" style="width:350px;" id="contractTemplate">
+        <li>
+            <label>Name</label>
+            <input type="text" class="a-textbox aci-field" name="name" id="contractName" maxlength="10"/>
+        </li>
+		</br>
+        <li>
+         
+            <div>
+                <label class="tooltip diagramArrow filtersLabel" title="Number of unique access control list elements"><span title=" ">Mapped to</span></label>
+                </div>
+            <div class="clr"> 
+                <input type="text" class="a-textbox aci-field" name="configName" id="contractText"  style="width:74%"/> 
+                <input type="button" id="contractConfig" value="Map" class="addBtn pull-right"  /> 
+            </div>
+        </li>
+		</br>
+        <li class="clr">
+            <label>Provider</label>
+            <select id="contractproviderId" name="providerId" required validationMessage="Enter {0}" placeholder="Select Epg..."
+                    class="aci-field disabledDropdown"/>
+        </li>
+		</br>
+		<li>
+            <label>Consumer</label>
+            <select id="contractconsumerId" name="consumerId" required validationMessage="Enter {0}" placeholder="Select Epg..."
+                    class="aci-field disabledDropdown"/>
+        </li>
+		</br>
+        </br>
+        <li class="pull-left wid50"> 
+            <div  class="tooltip providerEnforcedToolTip" title="The contract enforced by Provider EPG">
+            <span title=" ">       
+			<input type="checkbox" name= "providerEnforced" id="provider-checkbox" class="a-checkbox">                        
+			<label class="a-checkbox-label" for="provider-checkbox">Provider Enforced</label>
+        </span>
+        </div>
+        </li> 
+        <li class="pull-left">
+            <div  class="tooltip consumerEnforcedToolTip marginleft10" title="The contract enforced by Consumer EPG">
+            <span title=" ">
+            <input type="checkbox" name= "consumerEnforced" id="consumer-checkbox" class="a-checkbox">             
+			<label class="a-checkbox-label" for="consumer-checkbox">Consumer Enforced</label>
+            </span>
+            </div>
+        </li>
+
+       
+    </ul>
+</script>
+
+<script id="contractl3Template" type="text/x-aci-template">
+    <ul class="fieldlist" style="width:350px;" id="contractl3">
+        <li>
+            <label>Name</label>
+            <input type="text" class="a-textbox aci-field" name="name" id="contractl3Name" maxlength="10"/>
+        </li>
+		</br>
+        <li>
+            <div>
+            <label class="tooltip diagramArrow filtersLabel" title="Number of unique access control list elements"><span title=" ">Mapped To
+            </span></label>
+            </div>
+            <div class="clr" style="width: 94%;"> 
+                <input type="text" class="a-textbox aci-field" name="configName" id="contractL3Text"  style="width:74%"/> 
+                <input type="button" id="contractL3Config" value="Map" class="addBtn pull-right"  /> 
+            </div>
+        </li>
+		</br>
+        <li>
+            <label>Provider</label>
+            <select id="contractl3providerId" name="providerId" required validationMessage="Enter {0}" placeholder="Select Epg..."
+                    class="aci-field disabledDropdown"/>
+        </li>
+		</br>
+        <li>
+            <label class="tooltip diagramArrow" title="This is the l3out in common or local used for external connectivity"><span title=" ">Consumer</span></label>
+            <select id="contractl3consumerId" name="consumerId" required validationMessage="Enter {0}" placeholder="Select L3Out..."
+                    class="aci-field disabledDropdown" />
+        </li>
+		</br>
+        </br>
+         <li>
+         <div  class="tooltip providerEnforcedToolTip" title="The contract enforced by Provider EPG">
+            <span title=" ">
+			<input type="checkbox" id="provider-checkbox" class="a-checkbox" checked="checked">
+			<label class="a-checkbox-label" for="provider-checkbox">Provider Enforced</label>
+            </span>
+            </div>
+        </li>
+		</br>	
+        </br>	
+        <li>
+        <div  class="tooltip consumerEnforcedToolTip" title="The contract enforced by Consumer EPG">
+            <span title=" ">
+            <input type="checkbox" id="consumer-checkbox" class="a-checkbox" checked="checked">
+			<label class="a-checkbox-label" for="consumer-checkbox">Consumer Enforced</label>
+            </span>
+            </div>
+        </li>
+       
+    </ul>
+</script>
+
+<!--script id="contractsharedTemplate" type="text/x-aci-template">
+    <ul class="fieldlist" style="width:350px;" id="contractl3">
+        <li>
+            <label>Name</label>
+            <input type="text" class="a-textbox aci-field" name="name" id="contractsharedName" maxlength="10"/>
+        </li>
+		</br>
+        <li>
+            <label class="tooltip diagramArrow filtersLabel" title="Number of unique access control list elements"><span title=" ">Filters
+            </span></label>
+            <input type="number" id="contractsharedcount" class="" name="count" min="1"/>
+        </li>
+		</br>
+        <li>
+            <label>Provider</label>
+            <select id="contractsharedproviderId" name="providerId" required validationMessage="Enter {0}" placeholder="Select Epg..."
+                    class="aci-field disabledDropdown"/>
+        </li>
+		</br>
+        <li>
+            <label class="tooltip diagramArrow" title="This is the shared service in common or local used for external connectivity"><span title=" ">Consumer</span></label>
+            <select id="contractsharedconsumerId" name="consumerId" required validationMessage="Enter {0}" placeholder="Select Shared Service..."
+                    class="aci-field disabledDropdown" />
+        </li>
+		</br>
+        </br>
+         <li>
+         <div  class="tooltip providerEnforcedToolTip" title="The contract enforced by Provider EPG">
+            <span title=" ">
+			<input type="checkbox" id="provider-checkbox" class="a-checkbox" checked="checked">
+			<label class="a-checkbox-label" for="provider-checkbox">Provider Enforced</label>
+            </span>
+            </div>
+        </li>
+		</br>	
+        </br>	
+        <li>
+        <div  class="tooltip consumerEnforcedToolTip" title="The contract enforced by Consumer EPG">
+            <span title=" ">
+            <input type="checkbox" id="consumer-checkbox" class="a-checkbox" checked="checked">
+			<label class="a-checkbox-label" for="consumer-checkbox">Consumer Enforced</label>
+            </span>
+            </div>
+        </li>
+       
+    </ul>
+</script-->
+
+
+<script id="vrfTemplate" type="text/aci">
+ <ul class="fieldlist" style="width:320px;">
+    <li>
+        <label>VRF Name</label>
+        <input type="text" class="a-textbox aci-field" name="name" id="vrfName" maxlength="10"/>
+    </li>
+	</br>
+    </br>
+    <li>
+   <!--label >Enforced</label--> 
+   <label id= "enforcedVRF" class="switchlabel tooltip diagramArrow" title="If enforced the inter-EPG communication is enabled through contracts"><span title=" ">Enforced</span></label> <label class="tswitch">     <input type="checkbox" id ="status" name="status" class="tswitch-input" checked>     <span class="tswitch-label" data-on="ON" data-off="OFF"></span>      <span class="tswitch-handle"></span>
+<!--select id="status" name="status" required validationMessage="Enter {0}" placeholder="Select Status..." class="aci-field" ></select-->
+    </li>
+    </br>
+	
+</ul>
+
+</script>
+
+<script id="bdTemplate" type="text/aci">
+ <ul class="fieldlist" style="width:320px;">
+   <li>
+        <label>Name</label>
+        <input type="text" class="a-textbox aci-field" name="name" id="bdName" maxlength="10"/>
+    </li>
+	</br>
+    <li>
+        <label class="tooltip diagramArrow" title="Default Subnet used by all EPGs residing in the BD"><span title=" ">Subnets</span></label>
+        <input type="number" id="subnet" class="" name="bdSubnets" min="1"/>
+    </li>
+	</br>
+     <li>
+        <label>VRF</label>
+         <select id="vrf" name="vrf" required validationMessage="Enter {0}" placeholder="Select VRF ..." class="aci-field disabledDropdown">
+         </select>
+    </li>
+</ul>
+</script>
+
+<script id="l3outTemplate" type="text/aci">
+ <ul class="fieldlist" id="l3outDialgog" style="width:320px;">
+    <li>
+        <label>Name</label>
+        <input type="text" class="a-textbox aci-field" name="name" id="l3outname" maxlength="10" required/>
+    </li>
+	</br>
+	<li>
+        <label>EPG Prefixes</label>
+        <input type="number" id="epgprefixes" class="" name="epgPrefixes " min="1"/>
+    </li>
+	</br>
+	<li>
+        <label>Span</label>
+        <input type="number" id="l3Span" class="" name="span" min="1"/>
+    </li>
+	</br>
+	<li>
+        <label>SubInterfaces</label>
+        <input type="number" id="subif" class="" name="subInterfaces" min="1"/>
+    </li>
+	</br>
+	<li>
+        <label>SVI</label>
+        <input type="number" id="svi" class="" name="svis" min="1"/>
+    </li>
+	</br>
+	<li>
+        <label>VRF</label>
+         <select id="vrf" name="vrf" required validationMessage="Enter {0}" placeholder="Select VRF ..." class="aci-field disabledDropdown">
+         </select>
+    </li>
+	</br>
+</ul>
+</script>
+
+<script id="sharedTemplate" type="text/aci">
+ <ul class="fieldlist" style="width:320px;">
+   <li>
+        <label>Name</label>
+        <input type="text" class="a-textbox aci-field" name="name"/>
+    </li>
+	</br>
+     <li>
+        <label>VRF</label>
+         <select id="vrf" name="vrf" required validationMessage="Enter {0}" placeholder="Select VRF ..." class="aci-field disabledDropdown">
+         </select>
+    </li>
+</ul>
+</script>
+
+<script id="errorTemplate" type="text/x-aci-template">
+    <div id= "errorPopUpId" class="error-popup">
+      <div class="error-popup-header">
+         <span class="error-popup-title">ERROR</span>
+      </div>
+    <img src="images/errorIcon.png"/>
+    <div class="error-popup-desc">
+        <span class="error-popup-msg">#= title #</span>
+        <br>                
+        <span class="error-popup-description">#= message #</span>
+    </div>       
+       <button id="errorClose" class="error-popup-close" onClick="errorClose()">Close</button>
+    </div>    
+</script>
+<script>
+    function errorClose() {
+   // console.log(document.getElementsByClassName("a-animation-container"));
+   var errorDiv = document.getElementsByClassName("a-animation-container");
+   var len = errorDiv.length;
+   for(var i=0; i<len; i++){
+        if(errorDiv[i].classList.length == 2){
+             errorDiv[i].remove();
+         }
+   }  
+   $("#PopupMask").remove();
+}
+</script>
+
+<script id="epg-node-template" type="text/x-aci-template">
+    <div class="table-responsive">
+        <table class="table table-striped customTable">
+            <tbody>
+            <tr>
+                <td style="font-weight:bold">Name:</td>
+                <td>#: name #</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold">Endpoint:</td>
+                <td>#: noOfEndPoints #</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold">Span:</td>
+                <td>#: span #</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold">Subnet:</td>
+                <td>#: epgSubnets #</td>
+            </tr>      
+             <tr>
+                <td style="font-weight:bold" nowrap>BD Name:</td>
+                <td nowrap>#: bdName #</td>
+            </tr>
+             <tr>
+                <td style="font-weight:bold" nowrap>Shared Services Enabled:</td>
+                <td nowrap>#: sharedServicesEnabled #</td>
+            </tr>
+			<tr>
+                <td style="font-weight:bold">Filter:</td>
+                <td nowrap>#: noOfsharedServiceFilter #</td>
+            </tr>				
+
+            </tbody>
+        </table>
+    </div>
+     <div class="iconsClass">
+        <div class="iconEditClass">
+        <a id="iconEditButton">Edit</a>
+        </div>
+        <div class="iconDeleteClass">
+        <a id="iconDeleteButton">Delete</a>
+        </div>
+    </div>
+</script>
+
+<script id="app-node-template" type="text/x-aci-template">
+    <div class="table-responsive">
+        <table class="table table-striped customTable">
+            <tbody>
+            <tr>
+                <td style="font-weight:bold">Name:</td>
+                <td>#: name #</td>
+            </tr> 
+            <tr>
+                <td style="font-weight:bold">Instances:</td>
+                <td>#: noOfInstances #</td>
+            </tr>            
+            </tbody>
+        </table>
+    </div>
+     <div class="iconsClass" style="width:180px">
+        <div class="iconEditClass">
+        <a id="iconEditButton">Edit</a>
+        </div>
+        <div class="iconDeleteClass">
+        <a id="iconDeleteButton">Delete</a>
+        </div>
+    </div>
+</script>
+
+<script id="contract-node-template" type="text/x-aci-template">
+    <div class="table-responsive">
+        <table class="table table-striped customTable">
+            <tbody>
+            <tr>
+                <td style="font-weight:bold">Name:</td>
+                <td>#: name #</td>
+            </tr> 
+            <tr>
+                <td style="font-weight:bold">Mapped To:</td>
+                <td>#: configName #</td>
+            </tr>                       
+            <tr>
+                <td style="font-weight:bold">Provider:</td>
+                <td nowrap>#: providerName #</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold">Consumer:</td>
+                <td nowrap>#: consumerName #</td>
+            </tr>
+            <tr>
+                <td nowrap style="font-weight:bold">Provider Enforced:</td>
+                <td>#: providerEnforced #</td> 
+            </tr>
+              <tr>
+                <td nowrap style="font-weight:bold">Consumer Enforced:</td>
+                <td>#: consumerEnforced #</td> 
+            </tr>            
+            </tbody>
+        </table>
+    </div>
+     <div class="iconsClass">
+        <div class="iconEditClass">
+        <a id="iconEditButton">Edit</a>
+        </div>
+        <div class="iconDeleteClass">
+        <a id="iconDeleteButton">Delete</a>
+        </div>
+    </div>
+</script>
+
+
+<script id="contractl3-node-template" type="text/x-aci-template">
+    <div class="table-responsive">
+        <table class="table table-striped customTable">
+            <tbody>
+            <tr>
+                <td style="font-weight:bold">Name:</td>
+                <td>#: name #</td>
+            </tr> 
+            <tr>
+                <td style="font-weight:bold">Mapped to:</td>
+               <td>#: configName #</td>
+            </tr>  
+            <tr>
+                <td style="font-weight:bold">Provider:</td>
+                <td nowrap>#: providerName #</td>
+            </tr> 
+            <tr>
+                <td style="font-weight:bold">Consumer:</td>
+                <td nowrap>#: consumerName #</td>
+            </tr>           
+            <tr>
+                <td nowrap style="font-weight:bold">Provider Enforced:</td>
+                <td>#: providerEnforced #</td> 
+            </tr>
+            <tr>
+                <td nowrap style="font-weight:bold">Consumer Enforced:</td>
+                <td>#: consumerEnforced #</td> 
+            </tr>             
+            </tbody>
+        </table>
+    </div>
+     <div class="iconsClass">
+        <div class="iconEditClass">
+        <a id="iconEditButton">Edit</a>
+        </div>
+        <div class="iconDeleteClass">
+        <a id="iconDeleteButton">Delete</a>
+        </div>
+    </div>
+</script>
+
+<script id="bd-node-template" type="text/x-aci-template">
+    <div class="table-responsive">
+        <table class="table table-striped customTable">
+            <tbody>
+            <tr>
+                <td style="font-weight:bold">Name:</td>
+                <td>#: name #</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold">Subnets:</td>
+                <td>#: bdSubnets #</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold">VRF:</td>
+                <td nowrap>#: vrfName #</td>
+            </tr>    
+            </tbody>
+        </table>
+    </div>
+    <div class="iconsClass">
+        <div class="iconEditClass">
+        <a id="iconEditButton">Edit</a>
+        </div>
+        <div class="iconDeleteClass">
+        <a id="iconDeleteButton">Delete</a>
+        </div>
+    </div>
+</script>
+<script id="vrf-node-template" type="text/x-aci-template">
+    <div class="table-responsive">
+        <table class="table table-striped customTable">
+            <tbody>
+            <tr>
+                <td style="font-weight:bold">Name:</td>
+                <td>#: name #</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold">Enforced:</td>
+                <td>#: enforced #</td>
+            </tr>          
+            </tbody>
+        </table>
+    </div>
+    <div class="iconsClass" style="width:180px">
+        <div class="iconEditClass">
+        <a id="iconEditButton">Edit</a>
+        </div>
+        <div class="iconDeleteClass">
+        <a id="iconDeleteButton">Delete</a>
+        </div>
+    </div>
+</script>
+<script id="l3out-node-template" type="text/x-aci-template">
+    <div class="table-responsive">
+        <table class="table table-striped customTable">
+            <tbody>
+            <tr>
+                <td style="font-weight:bold">Name:</td>
+                <td>#: name #</td>
+            </tr>
+            <tr>
+                <td nowrap style="font-weight:bold">EPG Prefixes:</td>
+                <td>#: epgPrefixes #</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold">Span:</td>
+                <td>#: span #</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold">SubInterfaces:</td>
+                <td>#: subInterfaces #</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold">SVI:</td>
+                <td>#: svis #</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold">VRF:</td>
+                <td nowrap>#: vrfName #</td>
+            </tr>  
+            </tbody>
+        </table>
+    </div>
+    <div class="iconsClass">
+        <div class="iconEditClass">
+        <a id="iconEditButton">Edit</a>
+        </div>
+        <div class="iconDeleteClass">
+        <a id="iconDeleteButton">Delete</a>
+        </div>
+    </div>
+</script>
+
+<script id="shared-node-template" type="text/x-aci-template">
+    <div class="table-responsive">
+        <table class="table table-striped customTable">
+            <tbody>
+            <tr>
+                <td style="font-weight:bold">Name:</td>
+                <td>#: name #</td>
+            </tr>         
+            </tbody>
+        </table>
+    </div>
+    <div class="iconsClass" style="width:180px">
+        <div class="iconEditClass">
+        <a id="iconEditButton">Edit</a>
+        </div>
+        <div class="iconDeleteClass">
+        <a id="iconDeleteButton">Delete</a>
+        </div>
+    </div>
+</script>

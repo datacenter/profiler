@@ -1,0 +1,18 @@
+<div class="addprojectView clr">
+  <div class="modal-header">
+    <h3 class="modal-title">Edit Object</h3>
+    <i class="fa fa-close closeIcon" ng-click="$dismiss()"></i>
+  </div>
+  <form name="addDeviceForm"   novalidate mpl-form-validation>
+    <div class="form-group">
+      <label>Object Name (User)</label>
+      <input type="text" placeholder="Object Name" class="form-control" required ng-model="objectname" name="name" />
+      <p class="help-block">Enter Object Name</p>
+    </div> 
+    <div class="button_footer">
+      <input type="submit" value="Save" class="a-button add-tenant-buttons"  ng-click="$dismiss()" />
+    </div>
+    <div class="popupLoadingProgress" ng-show="addDeviceLoading"></div>
+    <div mpl-progress id="add-device-request"></div>
+  </form> 
+</div>

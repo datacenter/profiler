@@ -1,0 +1,12 @@
+<div class="addprojectView clr" id="deleteTemplate">
+  <div class="modal-header">
+    <h3 class="modal-title">Delete Project</h3>
+    <i class="fa fa-close closeIcon" ng-click="$dismiss()"></i>
+  </div>
+  <center> Are you sure you want to delete "{{popupCtrl.projectObject.name}}" ? </center><br/>
+  <div align="center" class="button_footer">
+    <input type="submit" value="Yes" class="a-button add-tenant-buttons wid30 margin_right5" ng-click="popupCtrl.deleteProject(popupCtrl.projectObject.id)" />
+    <input type="submit" value="No" class="a-button add-tenant-buttons wid30" ng-click="$dismiss()" />
+    <div mpl-progress id="delete-project-request"></div>
+  </div>
+</div>

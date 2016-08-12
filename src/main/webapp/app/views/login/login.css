@@ -1,0 +1,52 @@
+.login-container {
+	background: #0093cd;
+  background: -moz-linear-gradient(top, #0093cd 0%, #00b3ee 100%);
+  background: -webkit-linear-gradient(top, #0093cd 0%, #00b3ee 100%);
+  background: linear-gradient(to bottom, #0093cd 0%, #00b3ee 100%);
+  color: #757575;
+}
+
+.login-container .login-modal{
+	width: 345px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 3px 8px #676767;
+}
+
+.login-container .login-modal .login-header{
+	padding: 7px 10px;
+	border-bottom: 1px solid #ebe9e9;
+}
+.login-container .login-modal .login-header .title{
+	font-size: 27px;
+}
+
+.login-container .login-modal .login-header .logo-container{
+	display: inline-block;
+	padding-right: 10px;
+}
+
+.login-container .login-modal .login-header .logo-container img{
+	margin-top: -12px;
+}
+
+.login-container .login-modal .login-form{
+	padding: 20px;
+}
+
+.login-container .login-modal .login-form .form-group label{
+	font-weight: 100;
+}
+
+.login-container .login-modal .login-form .form-control{
+	box-shadow: none;
+}
+
+.login-container .login-modal .login-form .login-btn{
+	background-color: #464646;
+	color: #fff;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	font-size: 17px;
+	border-radius: 5px;
+}

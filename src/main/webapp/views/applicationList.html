@@ -1,0 +1,15 @@
+
+      <div class="applicationCarousal">
+			<ul id="application-slider">
+                <li class="applicationCard" ng-repeat="app in applicationList" ng-click="changeSelectedApplication($index)" ng-class="{applicationCardSelected: $index===selectedApplicationIndex}">
+                <div ng-model="application.id">
+				   <i class="glyphicon glyphicon-remove" style="float:right; margin-top:-5px; font-size:60%" ng-click="openDelAppWindow($index)"></i>
+                   <p id="applicationName" ng-model="app.displayName" text-align="center">{{app.name}}
+					<span ng-model=app.instances>({{app.noOfInstances}})</span>
+					</p>
+
+                </div>
+                </li>
+            </ul>
+    </div>
+	<div id="delAppWindow" style="display:none;" ng-include src="'views/delApp.html'" style="border-radius:4px"></div>

@@ -1,0 +1,80 @@
+<div class="addprojectView clr">
+  <div class="modal-header">
+    <h3 class="modal-title">Contract Details</h3>
+    <i class="fa fa-close closeIcon" ng-click="$dismiss()"></i>
+  </div>
+  <div class="clr contractDetails">
+      <div class="wid30 pull-left " >
+          <ul>
+            <li class="activetree" id="contractTree1">
+              <span  data-toggle="collapse" data-parent="#contractTree1" data-target="#filterId1"  ng-click="contractDetails()">
+              <i class="fa fa-angle-right"></i> <i class="fa fa-angle-down"></i> &nbsp;Contract</span>
+            </li> 
+            <li   id="filterId1" class="collapse in">
+                <ul class="subFilter">
+                  <li ng-repeat="filerEle in filterElement">
+                    <span data-toggle="collapse" data-parent="#filterId1" data-target="#filter2{{$index}}" ng-click="filterDetails()">
+                     <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i>&nbsp;  {{filerEle.filtername}}  </span>
+                        <ul  id="filter2{{$index}}" class="collapse subEntry">
+                            <li ng-repeat="entry in filterEntry" ng-click="filterentryDetails()">{{entry.filterentry}}</li> 
+                        </ul> 
+                  </li>
+                </ul>
+            </li> 
+          </ul>
+      </div>
+      <div class="wid70 pull-left">
+          <div class="filterEntryDetails" ng-show="filterEty">
+            <h5>Filter Entry 1 Details</h5> 
+            <div class="clr">
+                  <div class="rowLabel">
+                        <label>Name </label>
+                        <span>3pc Contract</span>
+                  </div>
+                   <div class="rowLabel">
+                        <label>Entray Type </label>
+                        <span>Type 1</span>
+                  </div>
+                   <div class="rowLabel">
+                        <label>IP Protocol </label>
+                        <span>Protocol 1</span>
+                  </div>
+                   <div class="rowLabel">
+                        <label>Source Port </label>
+                        <span>Port 1</span>
+                  </div>
+                   <div class="rowLabel">
+                        <label>Destination Port </label>
+                        <span>Port 2</span>
+                  </div>
+              </div>
+          </div>
+          <div class="contractDet" ng-hide="contractDet">
+            <h5>Contract Details</h5> 
+            <div class="clr">
+                  <div class="rowLabel">
+                        <label>Name </label>
+                        <span>3pc Contract</span>
+                  </div> 
+              </div>
+          </div>
+           <div class="filterDet" ng-show="filterDet">
+            <h5>Filter1 Details</h5> 
+            <div class="clr">
+                  <div class="rowLabel">
+                        <label>Name </label>
+                        <span>3pc Contract</span>
+                  </div> 
+                  <div class="rowLabel">
+                        <label>Description </label>
+                        <span>Filter sample description</span>
+                  </div> 
+              </div>
+          </div>
+          <hr class="clr" />
+          <div class="clr margintop10" align="center">
+              <input type="button" value="OK" class="a-button add-tenant-buttons" ng-click="$dismiss()" />
+          </div>
+      </div>
+  </div> 
+</div>

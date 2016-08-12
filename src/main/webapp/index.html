@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title>Profiler</title>
+
+  <!-- bower components styles-->
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+  <!-- application styles -->
+  <link rel="stylesheet" type="text/css" href="app/styles/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="app/styles/fonts.css">
+  <link rel="stylesheet" type="text/css" href="app/styles/common.css">
+  <link rel="stylesheet" type="text/css" href="app/styles/utility.css">
+
+  <link rel="stylesheet" type="text/css" href="app/directives/form-validation/form-validation.css">
+
+
+  <link rel="stylesheet" type="text/css" href="app/views/login/login.css">
+  <link rel="stylesheet" type="text/css" href="app/views/navbar/navbar.css">
+  <link rel="stylesheet" type="text/css" href="app/views/home/home.css">
+  <link rel="stylesheet" type="text/css" href="app/views/home/plugins/plugins.css">
+  <link rel="stylesheet" type="text/css" href="app/views/home/projects/projects.css">
+  <link rel="stylesheet" type="text/css" href="app/views/home/projects/details/project-details.css">
+  <link rel="stylesheet" type="text/css" href="app/views/home/repositories/repositories.css">
+  <link rel="stylesheet" type="text/css" href="app/views/home/users/users.css">
+  <link rel="stylesheet" type="text/css" href="app/directives/progress-bar/progress-bar.css">
+  <link rel="stylesheet" href="styles/libs/lightslider.css"/>
+
+
+    
+    <link rel="stylesheet" href="styles/aci.css"/>
+    <link rel="stylesheet" href="styles/aci.common.min.css">
+    <link rel="stylesheet" href="styles/aci.rtl.css">
+    <link rel="stylesheet" href="styles/aci.material.min.css">
+    <!-- <link rel="stylesheet" href="styles/aci.mobile.all.min.css"> -->
+    <link rel="stylesheet" href="styles/jquery-ui.css"/>
+    
+
+</head>
+
+<body ng-app="profiler">
+  <div class="" ui-view="" style="height: 93.6% !important;"></div>
+  <div class="lightBoxPopup" style="display:none" id="lightBox"></div>
+
+  <!-- bower_components Scripts -->
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="bower_components/TableHeadFixer/tableHeadFixer.js"></script>
+  <script type="text/javascript" src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="bower_components/ngstorage/ngStorage.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  
+  <script type="text/javascript" src="scripts/libs/Chart.js"></script>    
+  <script type="text/javascript" src="scripts/ngscrollbar.js"></script>   
+  <script type="text/javascript" src="scripts/libs/lightslider.js"></script>     
+  <script type="text/javascript" src="scripts/libs/angular-chart.js"></script>    
+
+  <!-- Application Directives -->
+  <script type="text/javascript" src="app/directives/form-validation/form-validation.js"></script>
+  <script type="text/javascript" src="app/directives/progress-bar/progress-bar.js"></script>    
+  
+  <!-- Application Scripts -->
+  <script type="text/javascript" src="app/index.module.js"></script>    
+  <script type="text/javascript" src="app/constants/app-constants.js"></script>
+  <script type="text/javascript" src="app/constants/request-types.js"></script>
+  <script type="text/javascript" src="app/constants/object-types.js"></script>
+  <script type="text/javascript" src="app/values/app-values.js"></script>
+  
+  <script type="text/javascript" src="app/configs/app-config.js"></script>
+  <script type="text/javascript" src="app/configs/app-routes-config.js"></script>
+  <script type="text/javascript" src="app/configs/http-interceptor-config.js"></script>
+  <script type="text/javascript" src="app/configs/slim-scroll-config.js"></script>
+  <script type="text/javascript" src="app/services/app-service.js"></script>
+  <script type="text/javascript" src="app/services/request-canceller.js"></script>
+  <script type="text/javascript" src="app/services/util.js"></script>
+
+  <script type="text/javascript" src="app/services/mock-service.js"></script>
+  <script type="text/javascript" src="app/services/project-service.js"></script>
+  <script type="text/javascript" src="app/services/project-details-service.js"></script>
+  <script type="text/javascript" src="app/services/device-service.js"></script>
+  <script type="text/javascript" src="app/services/repository-service.js"></script>
+  <script type="text/javascript" src="app/services/plugin-service.js"></script>
+  <script type="text/javascript" src="app/services/user-service.js"></script>
+  <script type="text/javascript" src="app/services/authentication-service.js"></script>
+  <script type="text/javascript" src="app/services/popup-service.js"></script>
+  <script type="text/javascript" src="app/services/model-service.js"></script>
+  
+  <script type="text/javascript" src="app/views/login/login-controller.js"></script>
+  <script type="text/javascript" src="app/views/home/home-controller.js"></script>
+  <script type="text/javascript" src="app/views/navbar/navbar-controller.js"></script>
+
+  <script type="text/javascript" src="app/views/home/plugins/plugins-controller.js"></script>
+  <script type="text/javascript" src="app/views/home/plugins/plugins-left-panel-controller.js"></script>
+  <script type="text/javascript" src="app/views/home/plugins/plugins-right-panel-controller.js"></script>
+  <script type="text/javascript" src="app/views/home/plugins/models-popup-controller.js"></script>
+    
+
+  <script type="text/javascript" src="app/views/home/projects/projects-controller.js"></script>
+  <script type="text/javascript" src="app/views/home/projects/projects-popup-controller.js"></script>
+  <script type="text/javascript" src="app/views/home/projects/details/project-details-controller.js"></script>
+  
+  <script type="text/javascript" src="app/views/home/repositories/repositories-controller.js"></script>
+  <script type="text/javascript" src="app/views/home/repositories/repository-left-panel-controller.js"></script>
+  <script type="text/javascript" src="app/views/home/repositories/repository-right-panel-controller.js"></script>
+  <script type="text/javascript" src="app/views/home/repositories/devices-popup-controller.js"></script>
+
+  <script type="text/javascript" src="app/views/home/users/users-controller.js"></script>
+  <script type="text/javascript" src="app/views/home/users/users-popup-controller.js"></script>
+  <script type="text/javascript" src="scripts/jquery-ui.js"></script>
+
+  <script type="text/javascript" src="scripts/framework/aci.all.min.js"></script>
+  <script type="text/javascript" src="scripts/framework/aci.angular.min.js"></script>
+  <script type="text/javascript" src="scripts/framework/aci.timezones.min.js"></script>
+  <script type="text/javascript" src="scripts/constants.js"></script>
+  <script type="text/javascript" src="scripts/factory.js"></script>
+  <script type="text/javascript" src="scripts/services.js"></script>
+  <script type="text/javascript" src="scripts/dashboardServices.js"></script>
+  <script type="text/javascript" src="scripts/physicalConstants.js"></script>
+  <script type="text/javascript" src="scripts/directives.js"></script>
+  <script type="text/javascript" src="scripts/libs/xeditable.js"></script>
+
+
+  <script type="text/javascript" src="app/state.controller.js"></script>
+  <script type="text/javascript" src="app/index.run.js"></script>    
+
+
+
+  <!-- 
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-translate/angular-translate.js"></script>
+<script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+<script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+<script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+<script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script> -->
+  <!-- Start of framework scripts -->
+  <!-- <script src="scripts/framework/aci.all.min.js"></script>
+<script src="scripts/framework/aci.angular.min.js"></script>
+<script src="scripts/framework/aci.timezones.min.js"></script> -->
+  <!-- Start of Custom scripts -->
+  <!-- <script src="modules/mapleFrameworks/scripts/loginDirective.js"></script> 
+    <script src="scripts/jquery.slimscroll.js" type="text/javascript"></script>
+    -->
+    <span id="notificationProject" style="display:none;"></span>
+    <script id="errorTemplateProj" type="text/x-aci-template">
+    
+    <div id="errorPopUpId" class="error-popup">
+        <div class="error-popup-header">
+            <span class="error-popup-title">ERROR</span>
+        </div>
+        <img src="images/errorIcon.png"/>
+
+        <div class="error-popup-desc">
+            <span class="error-popup-msg">#= title #</span>
+            <br>
+            <span class="error-popup-description">#= message #</span>
+        </div>
+        <button id="errorClose" class="error-popup-close" onClick="errorClose()">Close</button>
+    </div>
+</script>
+<script> 
+    function errorClose() {  
+        var errorDiv = document.getElementsByClassName("a-animation-container");
+        var len = errorDiv.length;
+        for (var i = 0; i < len; i++) {
+            if(errorDiv[i].classList.length == 2){
+                 errorDiv[i].remove();
+             }           
+        }
+        $('#lightBox').hide();
+        $("#PopupMaskProject").remove();
+    } 
+</script>
+</body>
+
+</html>

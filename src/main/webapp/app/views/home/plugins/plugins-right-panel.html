@@ -1,0 +1,26 @@
+<div class="col-lg-9 col-md-9 col-sm-12">
+  <div class="outerBorder clr winHeight">
+    <div class="clr margintop15">
+      <span class="sub_title">PLUGINS</span>
+      <span class="pull-right"><input type="button" class="add_btn" value="+ Add Model" ng-click="pluginsRPCtrl.addModelPopup()" /></span>
+    </div>
+    <div class="userTable margintop10">
+      <table class="table table-bordered fixedTable" cellpadding="0" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Version</th>
+            <th>Supported Model</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="plugin in (pluginsRPCtrl.pluginsCtrl.vendorPluginsList || pluginsRPCtrl.pluginsCtrl.pluginsList)">
+          	<td>{{plugin.name}}</td>
+          	<td>{{plugin.version}}</td>
+          	<td>{{pluginsRPCtrl.getSupportedModels(plugin.model)}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

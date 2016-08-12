@@ -1,0 +1,40 @@
+<div class="aci-dialog-content-div">
+    <form name="addEPG" ng-submit="addEPG.$valid && validateAddEPG($event)">
+	<!-- Use the form instead of attributes -->
+        <div class="aci-dialog-content-span">
+            <label class="aci-textbox-label" for="name" style="padding-right:20px; width:30%">Name:</label>
+            <input type="text" id="name" ng-model="addEpgForm.name" class="aci-state-disabled" disabled style="width:50%"/>
+        </div>
+        </br>
+        <div class="aci-dialog-content-span">
+           <label class="aci-textbox-label" for="endpoints" style="padding-right:20px; width:30%">End points:</label>
+           <input type="number" id="endpoints" ng-model="addEpgForm.endPoints" max="{{addEpgMaxEndPoints}}" min="{{addEpgMinEndPoints}}" required style="width:20%"/>
+        </div>
+        </br>
+        <div class="aci-dialog-content-span">
+           <label class="aci-textbox-label" for="span" style="padding-right:20px; width:30%">Span:</label>
+           <input type="number" id="span" ng-model="addEpgForm.span" max="{{addEpgMaxSpan}}" min="{{addEpgMinSpan}}" required style="width:20%"/>
+        </div>
+        </br>
+        <div class="aci-dialog-content-span">
+           <label class="aci-textbox-label" for="subnets" style="padding-right:20px; width:30%">Subnets:</label>
+           <input type="number" id="subnets" ng-model="addEpgForm.subnets" max="{{addEpgMaxSubmets}}" min="{{addEpgMinSubnets}}" required style="width:20%"/>
+        </div>
+        </br>
+        <div class="aci-dialog-content-span">
+           <label class="aci-textbox-label" for="bd" style="padding-right:20px; width:30%">BD:</label>
+           <select ng-model="addEpgForm.bd" id="bd" class="aci-dropdown" style="width:40%"
+                   ng-options="bd for bd in bdList" required>
+                   <option value="">{{addEpgBds}}</option> 
+            </select>
+        </div>
+        </br>
+        </br>
+       <div class="aci-dialog-content-span">
+            <aci-button class="aci-primary" type="submit" style="float : right;">Save</aci-button>
+            <aci-button type="button" on-click="onCancelAddEpg()" style="float : right;margin-right: 10px;">Cancel</aci-button>
+        </div>
+    </form>
+</div>
+
+

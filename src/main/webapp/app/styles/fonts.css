@@ -1,0 +1,31 @@
+// HelveticaNeue
+@font-face {
+  font-family: HelveticaNeue-Medium;
+  src: url(../../fonts/HelveticaNeue-Medium.ttf);
+}
+
+@font-face {
+  font-family: HelveticaNeueLTStd-Roman;
+  src: url(../../fonts/HelveticaNeueLTStd-Roman.otf);
+}
+
+@font-face {
+  font-family: HelveticaNeueLTStd-Lt;
+  src: url(../../fonts/HelveticaNeueLTStd-Lt.otf);
+}
+
+@font-face {
+  font-family: Helvetica-55-Roman;
+  src: url(../../fonts/Helvetica-55-Roman.ttf);
+}
+
+// LATO Fontss
+@font-face {
+  font-family: Lato;
+  src: url(../../fonts/Lato-Regular.ttf);
+}
+
+@font-face {
+  font-family: SourceSansPro-Regular;
+  src: url(../../fonts/SourceSansPro-Regular.otf);
+}

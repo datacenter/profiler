@@ -1,0 +1,136 @@
+<div class="jumbotron">
+    <p>
+
+
+        <aci-button  on-click="projectWindow.open()">Add Project</aci-button>
+        <!--<aci-button  on-click="openAppWindow()">Add Application</aci-button>-->
+        <aci-button  on-click="addVRF.open()">Add VRF</aci-button>
+        <aci-button  on-click="addBD.open()">Add BD</aci-button>
+        <aci-button  on-click="L3OutWindow.open()">Create L3Out</aci-button>
+        <aci-button  on-click="addApplication.open()">Add Application</aci-button>
+        <aci-button  on-click="addEPG.open()">Add EPG</aci-button>
+
+        <!-- START - Below is the window declaration -->
+    <div aci-window="projectWindow"
+         a-title="'modal'"
+         a-width="500"
+         a-height="200"
+         a-visible="false"
+		 a-modal="true"
+		 a-position="{top:10,left:10}"
+         a-content="{ url: 'samples/addProjectDialog.html' }"
+         a-on-open="addProjectDialogOpened()"
+         a-on-close="addProjectDialogClosed()">
+        <!-- END - Below is the window declaration -->
+    <div>
+        </div>
+    </div>
+    
+    <div aci-window="applicationWindow"
+         a-title="'This is my App window'"
+         a-width="500"
+         a-height="200"
+         a-visible="false"
+		 a-modal="true"
+		 a-position="{top:10,left:10}"
+         a-content="{ url: 'samples/dialog.html' }"
+         a-on-open="appWindowOpened()"
+         a-on-close="appWindowClosed()">
+        <!-- END - Below is the window declaration -->
+    <div>
+        </div>
+    </div>
+    
+    <div aci-window="addVRF"
+         a-title="'Add VRF'"
+         a-width="300"
+         a-height="180"
+         a-visible="false"
+		 a-modal="true"
+		 a-position="{top:'30%',left:'20%'}"
+         a-content="{ url: 'views/addVRF.html' }"
+         a-on-open="addVRFWindowOpened()"
+         a-on-close="addVRFVisible=false">
+        <!-- END - Below is the window declaration -->
+    <div>
+        </div>
+    </div>
+    
+    <div aci-window="addBD"
+         a-title="'Add BD'"
+         a-width="300"
+         a-height="150"
+         a-visible="false"
+		 a-modal="true"
+		 a-position="{top:'30%',left:'40%'}"
+         a-content="{ url: 'views/addBD.html' }"
+         a-on-open="addBDWindowOpened()"
+         a-on-close="addBDVisible=false">
+        <!-- END - Below is the window declaration -->
+    <div>
+        </div>
+    </div>
+    
+    <div aci-window="L3OutWindow"
+         a-title="'Create L3Out'"
+         a-width="320"
+         a-height="300"
+         a-visible="false"
+		 a-modal="true"
+		 a-position="{top:'30%',left:'40%'}"
+         a-content="{ url: 'views/CreateL3Out.html' }"
+         a-on-open="L3OutWindowOpened()"
+         a-on-close="L3OutWindowVisible=false">
+        <!-- END - Below is the window declaration -->
+    <div>
+        </div>
+    </div>
+    
+    <div aci-window="addApplication"
+         a-title="'Add Application'"
+         a-width="300"
+         a-height="180"
+         a-visible="false"
+		 a-modal="true"
+		 a-position="{top:'30%',left:'50%'}"
+         a-content="{ url: 'views/addApplication.html' }"
+         a-on-open="addApplicationOpened()"
+         a-on-close="addApplicationVisible=false">
+        <!-- END - Below is the window declaration -->
+    <div>
+        </div>
+    </div>
+    
+    <div aci-window="addEPG"
+         a-title="'Add EPG'"
+         a-width="300"
+         a-height="250"
+         a-visible="false"
+		 a-modal="true"
+		 a-position="{top:'30%',left:'60%'}"
+         a-content="{ url: 'views/addEPG.html' }"
+         a-on-open="addEPGWindowOpened()"
+         a-on-close="addEPGVisible=false">
+        <!-- END - Below is the window declaration -->
+    <div>
+        </div>
+    </div>
+	
+	
+</div>
+</p>
+<aci-button  on-click="onShowProjctsClick()">Show Projects</aci-button>
+<ul class="list-group">
+        <li class="list-group-item" ng-repeat="proj in projects">
+        <span >{{proj.name}}</span>
+	        <span class="badge">
+		        <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="deleteProj(proj.id)"></span>
+		       <!--  <span class="glyphicon glyphicon-pencil" aria-hidden="true" ng-click="editComment($index)"></span> -->
+		    </span>
+        </li>
+    </ul>
+</div>
+
+
+
+

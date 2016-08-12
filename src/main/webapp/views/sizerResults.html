@@ -1,0 +1,24 @@
+<div>
+		<div class="sizerResultTable" aci-grid="summaryGridRef" a-options="resourceGridOptions" a-data-source="resourceGridDataSource"  a-selectable="'row'"></div>
+		<script type="text/ng-template" id="templateId.html">
+		<ul style="list-style-type: none;">
+		<li ng-repeat="details in utilizationDetails">
+			<p class="progress-title">{{details.name}}</p>
+			<div class="progress">
+				<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{details.value}}"
+				aria-valuemin="0" aria-valuemax="100" style="width:{{details.value}}%">
+				</div>
+			</div>
+		<br>
+		</li>
+		</ul>
+		</script>
+		<div id="inputJSon" style="margin-top:10px;margin-left:100px;"></div>
+    </div>
+</div>
+
+
+
+
+
+

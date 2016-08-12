@@ -1,0 +1,192 @@
+<div class="aci-dialog-content-div" id="addDeviceForm">
+ <!-- <form editable-form class="formDataStyle" name="addDeviceForm"  ng-submit="addDeviceForm.$valid && validateAddDevice($event)"> 
+-->
+<br>
+<div class="aci-dialog-content-span ">      
+  <label for="deviceType" >Device Type</label> 
+  <select id="deviceType" ng-model="addDeviceF.deviceType" class="dropDownAddDevice " required ng-options="deviceType.name for deviceType in deviceJson">    
+  </select>       
+</div>
+
+<br>
+<div class="aci-dialog-content-span">
+  <label for="templateType">Template Type</label>          
+  <select id="TemplateType" ng-model="addDeviceF.templateType"  ng-change="handleTemplateChange()"  class="dropDownAddDevice" class="aci-textbox" required  ng-options="tempType.name for tempType in addDeviceF.deviceType.templateName">                
+  </select>              
+</div>
+<br>
+
+<div class="aci-dialog-content-span" ng-hide="addDeviceF.deviceType.name!='Server'">
+  <label for="instances">Instances</label>
+  <input ng-model="addDeviceF.instances" type="number" id="deviceInstance" style="width:10%"/>
+
+  <br>
+  <br>     
+
+  <input type="checkbox" id="ucsMngd" class="a-checkbox"  ng-model="addDeviceF.ucsManaged" checked="checked">
+  <label class="a-checkbox-label" for="ucsMngd" style="width:30px;">UCS Managed</label>
+
+  <br>
+  <br>
+
+  <label><u>Instance Details:</u></label>
+
+  <br>
+  <br>
+
+  <label>RU's</label>
+  <input class="instanceDetails"  ng-model="addDeviceF.instanceRU"  type="number" id="deviceRU" readonly>
+
+  <br>
+  <br>
+
+  <label>Power</label>
+  <input class="instanceDetails" ng-model="addDeviceF.instancePower" type="number" id="devicePower" readonly>
+
+  <br>
+  <br>
+
+  <label>Cooling</label>
+  <input class="instanceDetails" ng-model="addDeviceF.instanceCooling" type="number" id="deviceCooling" readonly>
+
+  <br>
+  <br>
+
+  <div ng-controller='portController'>
+   <h3 class="portsClass">Ports
+     <div class="plus-icon" ng-click="addPorts()" style="margin-left:10%;vertical-align:bottom"></div>
+   </h3>
+
+   <table class="table-condensed">
+    <thead>
+      <tr style="font-weight: bold; border-radius:5px; border:1px solid black;">         
+        <th style="white-space:pre; width:20%;line-height: 15px;">Port Group</th>
+        <th style="width:20%;">Speed</th>
+        <th style="width:20%;">Ports</th>
+        <th style="width:20%;">Connector</th>
+        <th style="width:20%;">Redundancy</th>
+        <th style="width:20%;border-right:none">Placement</th>
+        <th style="width:20%;border-left:none"> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="port in ports">          
+        <td>
+          <span editable-text= "port.name" e-name="name" e-form="rowform" e-required>
+            {{port.name}}              
+          </span>
+        </td>
+
+        <td>
+          <span editable-select="port.speed" e-name="speed" e-form="rowform" e-ng-options="speed.value as speed.text for speed in speedList"> {{showSpeed(port)}}</span>
+        </td>
+
+        <td>
+          <span editable-text= "port.noOfPorts" e-name="noOfPorts" e-form="rowform">{{port.noOfPorts}}  </span>
+        </td>
+
+        <td>
+          <span editable-select="port.connector" e-form="rowform" e-name="connector" e-ng-options="connector.value as connector.text for connector in connectorList ">
+            {{showConnector(port)}}
+          </span>
+        </td>
+
+        <td>
+          <span editable-select="port.redundancy" e-form="rowform" e-name="redundancy" e-ng-options="redundancy.value as redundancy.text for redundancy in redundancyList ">
+            {{showRedundancy(port)}}  </span>
+          </td>
+
+          <td>
+            <span editable-select="port.placement" e-form="rowform" e-name="placement" e-ng-options="placement.value as placement.text for placement in placementList ">
+              {{showPlacement(port)}}  </span>         
+            </td>
+            <td style="white-space: nowrap">
+
+              <form editable-form name="rowform" onbeforesave="savePort($data, port.id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == port">        
+                <!--Save-->
+                <button type="submit" class="glyphicon glyphicon-floppy-save customGlyphiconPorts noBorderButtons" ng-disabled="rowform.$waiting"></button>
+                <!--Cancel-->
+                <button type="button" class="glyphicon glyphicon-remove customGlyphiconPorts noBorderButtons" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()"></button> 
+              </form> 
+              <div class="buttons" ng-show="!rowform.$visible">   
+                <!-- Edit-->       
+                <button class="glyphicon glyphicon-pencil customGlyphiconPorts noBorderButtons" ng-click="rowform.$show()"></button>
+                <!-- Delete-->
+                <button class="glyphicon glyphicon-trash customGlyphiconPorts noBorderButtons" ng-click="removeUser($index)"></button>
+              </div>  
+
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <br>
+
+  <div class="aci-dialog-content-span" ng-show="addDeviceF.deviceType.name=='Switch'">
+    <label><u>Instance Details:</u></label>
+    <br>
+    <label>RU's</label>
+    <input class="instanceDetails" type="number" ng-model="addDeviceF.instanceRU" id="deviceSwRU" readonly>
+
+    <br>
+    <br>
+
+    <label>Power</label>
+    <input class="instanceDetails" type="number"  ng-model="addDeviceF.instancePower" id="deviceSwPower" readonly>
+
+    <br>
+    <br>
+    <label>Cooling</label>
+    <input class="instanceDetails" type="number"  ng-model="addDeviceF.instanceCooling" id="deviceSwCooling" readonly>
+
+    <br>
+
+    <h3 class="portsClass">Ports</h3>
+    
+    <table class="table-condensed" id="switchTable">
+    <thead>
+      <tr style="font-weight: bold; border-radius:5px; border:1px solid black;">         
+        <th style="width:10%">Speed</th>
+        <th style="width:10%">Ports</th>
+        <th style="width:10%">Connector</th>       
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="portSwitch in portsSwitch">          
+       
+        <td>
+          <span> {{portSwitch.speed}}</span>
+        </td>
+
+        <td>
+          <span>{{portSwitch.noOfPorts}}  </span>
+        </td>
+
+        <td>
+          <span>
+            {{portSwitch.connector}}
+          </span>
+        </td>                         
+
+          </tr>
+        </tbody>
+      </table>
+
+   
+    <input type="checkbox" id="ucsBrk" class="a-checkbox"  ng-model="addDeviceF.ucsBreakout" checked="checked">
+    <label class="a-checkbox-label" for="ucsBrk" style="width:30px;">UCS Breakout</label>
+    <br>
+    <br>
+  </div>
+  <div class="aci-dialog-content-span">
+    <div class="window-button">
+      <input class = "a-button" type="submit" value="Save" ng-click="validateAddDevice($event)" style="margin-left:14%"/>
+      <span><input class = "a-button" ng-click="onCanceladdDevice()" value="Cancel"></span>
+    </div>
+  </div>
+  <!--  </form>  -->
+</div>
+

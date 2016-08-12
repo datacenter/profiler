@@ -1,0 +1,54 @@
+#Web Server properties
+server:
+    port: 8080
+
+#https Configuration
+keystorefile: keystore.p12
+keystorepass: maplelabs
+sslport: 8443
+
+#Spring properties
+spring:
+  datasource:
+    serverName: applicationprofiler
+    driverClassName: com.mysql.jdbc.Driver
+    databaseName: applicationprofiler
+    url: jdbc:mysql://localhost:3306/applicationprofiler
+    user: root
+    password: mysql
+    prepStmtCacheSize: 250
+    prepStmtCacheSqlLimit: 2048
+    cachePrepStmts: true
+    useServerPrepStmts: true
+    dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
+    poolName: profilerConnectionPool
+    maximumPoolSize: 50
+    minimumIdle: 6
+    connectionTimeout: 300000
+    idleTimeout: 300000
+    
+  jpa:
+    show-sql : true
+    properties: 
+      hibernate.current_session_context_class: org.springframework.orm.hibernate4.SpringSessionContext
+    
+    
+logging:
+  file: my.log
+  level:
+    org.hibernate : DEBUG
+ 
+profiler:
+  security:
+    jwt:
+      issuer: admin   
+      secret: applicationprofiler
+      ttlMillis: 6000000
+      token: token
+      
+  plugin: 
+    path: G:\Projects\profiler\paloPlugin\target\
+    file: predefinedApplicationPauloAlto.xml
+    jar: paloPlugin-0.0.1-SNAPSHOT.jar
+    
+    

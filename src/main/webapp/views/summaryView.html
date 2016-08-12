@@ -1,0 +1,73 @@
+      <div class="leafNodes" style="width:25%!important;border-right:1px solid #eaeaea;">
+		<div style="height:60px;border-bottom:1px solid #eaeaea;">
+			<div class="leafs-count">{{currProject.logicalRequirementSummary.leafCountRegular}}</div>
+            <div class="leaftitle-text">Regular Leaf</div>
+		</div>
+		<div>
+			<div class="leafs-count">{{currProject.logicalRequirementSummary.leafCountBorder}}</div>
+                <div class="leaftitle-text">Border Leaf</div>
+		</div>
+	  </div>
+	  
+	   <div class="ProjectSummaryTitle" style="left:25%!important;top:0px; position:absolute; height:30px!important;border-bottom:1px solid #eaeaea;right:0px;">
+		<div class="summary-headerText">Project Summary</div>
+
+		<!-- <div class="summarymoreBtn chooseSwitchButton dropdown" ng-hide="showSizingResults">  
+			<span class="tooltip" id="chooseSwitches" style="position:relative;" title="This feature available only on the next release">
+			 <a class="dropdown-toggle" data-toggle="dropdown" style="color:#fff" id="switchDropDown">Choose Switches from Room
+	            
+            </a> 
+        </span>
+		</div>
+		<div class="summarymoreBtn" ng-click="moreButtonDisabled || showExpandedView();" ng-hide="showSizingResults" ng-disabled="moreButtonDisabled">More</div> -->
+	   </div>
+	
+	   <div class="ProjectFirstCol" style="left:25%!important;top:30px; position:absolute; width: 25%!important; border-right:1px solid #eaeaea; height:90px !important;">
+		<div style="height:30px; border-bottom:1px solid #eaeaea;">
+			<div class="wlsummary-label">Tenants:</div>
+			<div class="wlsummary-data">
+                        {{currProject.logicalRequirementSummary.tenantCount}}
+             </div>
+		</div>
+		<div style="height:30px; border-bottom:1px solid #eaeaea;">
+			 <div class="wlsummary-label">EPGs:</div>
+                    <div class="wlsummary-data">
+                        {{currProject.logicalRequirementSummary.epgCount}}
+                    </div>
+		</div>
+			  <div class="wlsummary-label" style=" border-left:1px solid #eaeaea;">End Points:</div>
+                    <div class="wlsummary-data">
+                        {{currProject.logicalRequirementSummary.endPoints}}
+                    </div>
+	   </div>
+	   <div class="ProjectSecCol" style="left:50%!important;top:30px; position:absolute; width: 25%!important; border-right:1px solid #eaeaea; height:90px !important;">
+		<div style="height:30px; border-bottom:1px solid #eaeaea;">
+				<div class="wlsummary-label">Contracts:</div>
+                    <div class="wlsummary-data">
+                        {{currProject.logicalRequirementSummary.contractCount}}
+                    </div>
+		</div>
+		<div style="height:30px; border-bottom:1px solid #eaeaea;">
+			<div class="wlsummary-label">Filters:</div>
+                    <div class="wlsummary-data">
+                        {{currProject.logicalRequirementSummary.filterCount}}
+                    </div>
+		</div>
+		  <div class="wlsummary-label">VRFs:</div>
+                    <div class="wlsummary-data">
+                        {{currProject.logicalRequirementSummary.vrfCount}}
+                    </div>
+	   </div>
+	    <div class="ProjectLastCol" style="left:75%!important;top:30px; position:absolute;right:0px; height:90px !important;">
+		<div style="height:30px; border-bottom:1px solid #eaeaea;">
+			<div class="wlsummary-label">BDs:</div>
+                    <div class="wlsummary-data">
+                        {{currProject.logicalRequirementSummary.bdCount}}
+                    </div>
+		</div>
+		<div style="height:30px; border-bottom:1px solid #eaeaea;">
+		</div>
+	   </div>
+
+	   
+	   

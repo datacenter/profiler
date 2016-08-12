@@ -1,0 +1,75 @@
+<div class="aci-dialog-content-div">
+    <form class="formDataStyle" name="addTenantForm" ng-submit="addTenantForm.$valid && validateAddTenant($event)" id="addTenant">
+    <!-- Use the form instead of attributes -->
+        <div class="aci-dialog-content-span">
+            <label>Name</label>
+            <input type="text" class="a-textbox aci-field tenant-project-label"  id="name" ng-model="tenant.displayName" required/>
+        </div>
+        </br>
+        <div class="aci-dialog-content-span no-of-instances">
+            <label>No. of Instances</label>
+            <input type="number" id="addTenantInstances" ng-model="tenant.count" class="tenant-project-label" max="{{addAppMaxNumInstances}}" min="{{addAppMinNumInstances}}" />
+        </div>       
+        <div class="aci-dialog-content-span">
+             <table class="addTenantTable">
+                   <tr>
+                    <td colspan="2">
+                      <label class="tenantTableLabel">VRF</label> 
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td nowrap width="175px">
+                      <input type="radio" name="localVRF" class="aci-radio" checked="checked" ng-model="tenant.localVrf" value="1">
+                      <label class="aci-radio-label radio-text-align tooltip" id="localVrfTooltip" title="A VRF, a BD are created under tenant."><span title=" ">Create Local VRF &nbsp &nbsp &nbsp &nbsp &nbsp</span></label>
+                    </td>
+                    <td nowrap>
+                      <input type="radio" name="localVRF" class="aci-radio" ng-model="tenant.localVrf" value="0">
+                      <label id="commonVrfTooltip" class="aci-radio-label tooltip radio-text-align" title="VRF is not created under tenant.&#013 Tenant uses common VRF under common tenant."><span title=" ">Use Common VRF</span></label>
+                    </td>    
+                  </tr>   
+            </table>
+        </br>
+               <table class="addTenantTable">
+                   <tr>
+                    <td nowrap colspan="2">
+                      <label class="tenantTableLabel">External Connectivity</label> 
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td nowrap  width="175px">
+                      <input type="radio" name="localL3" class="aci-radio" checked="checked" ng-model="tenant.localL3Out" value="1" ng-change ="disableL3Slider()">
+                      <label id="localL3Tootltip" class="aci-radio-label tooltip radio-text-align" title="An L3out is created for exclusive use of the tenant. It is created either in common tenant/common VRF or local VRF."><span title="">Create Dedicated L3Out</span></label>
+                    </td>
+                    <td nowrap>
+                      <input type="radio" name="localL3" class="aci-radio" ng-model="tenant.localL3Out" value="0" ng-change ="disableL3Slider()">
+                      <label id="commonL3Tooltip" class="aci-radio-label tooltip radio-text-align " title="Tenant uses common L3out in common tenant."><span title="">Use Common L3Out</span></label>
+                    </td>    
+                  </tr>   
+            </table>
+        </div>
+    </br>
+         <div class="aci-dialog-content-span">
+             <label>L3Out Scale</label>
+             </br>             
+             <input id="l3-tenant-slider" type="range" min="1" max="3" step="0.0025" value="2"  ng-model="tenant.l3OutSlider" style="width:263px" class="tenant-l3Out-slider" ng-mouseenter="changeSliderPos('l3-tenant-slider')"  ng-mousemove="changeSliderPos('l3-tenant-slider')" ng-mouseleave="changeSliderPos('l3-tenant-slider')">
+            <div>
+                 <p class="tooltip tenant-l3 low-tooltip" title="2 Interfaces in L3out" style="float:left;margin-left:3%"><span title="">Low</span></p>
+                 <p class="tooltip tenant-l3" title="4 Interfaces in L3out" style="float:left;margin-left:22%"><span title="">Medium</span></p>
+                 <p class="tooltip tenant-l3" title="6 Interfaces in L3out" style="float:left;margin-left:23%"><span title="">High</span></p>
+            </div>           
+         </div>
+     </br>
+     </br>
+
+        <div class="aci-dialog-content-span add-tenant-footer">
+            <div class="window-button">
+                <input class = "a-button add-tenant-buttons" type="submit" value="Save" style="margin-left:-20px"/>
+                <span><input class = "a-button add-tenant-buttons" type="button" ng-click="onCanceladdTenant()" value="Cancel"></span>
+            </div>
+       </div>
+    </form>
+</div>
+
+

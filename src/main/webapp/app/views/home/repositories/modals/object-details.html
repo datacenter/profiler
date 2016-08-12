@@ -1,0 +1,93 @@
+<div class="addprojectView clr">
+  <div class="modal-header">
+    <h3 class="modal-title">Object Details</h3>
+    <i class="fa fa-close closeIcon" ng-click="$dismiss()"></i>
+  </div>
+  <div class="clr contractDetails">
+    
+    <div class="wid30 pull-left" ng-if="contractCtrl.objectType==='contract'">
+      <div class="dropdown-item" data-toggle="collapse" data-target="#filters" ng-click="contractCtrl.setContract($event, contractCtrl.contract)" ng-class="{'active':contractCtrl.selectedItem===contractCtrl.contract}">
+        <i class="fa fa-angle-right contratc_Arrow"></i>
+        <i class="fa fa-angle-down contratc_Arrow"></i> &nbsp; {{contractCtrl.contract.name}}
+      </div>
+      <ul class="subFilter collapse in" id="filters">
+        <li ng-repeat="filter in contractCtrl.contract.subjects[0].filters">
+          <span class="dropdown-item" data-toggle="collapse" data-target="#filterEntries_{{$index}}" ng-click="contractCtrl.selectedIndx=$index; contractCtrl.setFilter($event, filter)"  ng-class="{'active':contractCtrl.selectedItem===filter}">
+            <i class="fa fa-angle-right contratc_Arrow"></i>
+            <i class="fa fa-angle-down contratc_Arrow"></i> &nbsp; {{filter.name}}
+          </span>
+          <ul class="subFilter subChild collapse in" id="filterEntries_{{$index}}">
+            <li ng-repeat="filterEntry in filter.filterEntry" ng-click="contractCtrl.setFilterEntry($event, filterEntry)">
+              <span class="dropdown-item" ng-class="{'active':contractCtrl.selectedItem===filterEntry}">{{filterEntry.name}}</span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="wid30 pull-left" ng-if="contractCtrl.objectType==='filter'">
+      <div class="dropdown-item" href="javascript:void(0)" data-toggle="collapse" data-target="#filter-entries_{{$index}}" ng-click="contractCtrl.setFilter($event, contractCtrl.filter)" ng-class="{'active':contractCtrl.selectedItem===contractCtrl.filter}">
+        <i class="fa fa-angle-right contratc_Arrow"></i>
+        <i class="fa fa-angle-down contratc_Arrow"></i> &nbsp; {{contractCtrl.filter.name}}
+      </div>
+      <ul class="subFilter subChild collapse in" id="filter-entries_{{$index}}">
+        <li ng-repeat="filterEntry in contractCtrl.filter.filterEntry" ng-click="contractCtrl.setFilterEntry($event, filterEntry)">
+          <span class="dropdown-item" ng-class="{'active':contractCtrl.selectedItem===filterEntry}">&nbsp; {{filterEntry.name}}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="wid70 pull-left">
+      <div class="filterEntryDetails" ng-if="contractCtrl.view==='filterEntry'">
+        <h5>Filter Entry Details</h5>
+        <div class="clr">
+          <div class="rowLabel">
+            <label>Name </label>
+            <span>{{contractCtrl.filterEntry.name}}</span>
+          </div>
+          <div class="rowLabel">
+            <label>Ether Type </label>
+            <span>{{contractCtrl.filterEntry.etherType}}</span>
+          </div>
+          <div class="rowLabel">
+            <label>IP Protocol </label>
+            <span>{{contractCtrl.filterEntry.ipProtocol}}</span>
+          </div>
+          <div class="rowLabel">
+            <label>Source Port </label>
+            <span>{{contractCtrl.filterEntry.srcPort}}</span>
+          </div>
+          <div class="rowLabel">
+            <label>Destination Port </label>
+            <span>{{contractCtrl.filterEntry.destPort}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="filterDet" ng-if="contractCtrl.view==='filter'">
+        <h5>Filter Details</h5>
+        <div class="clr">
+          <div class="rowLabel">
+            <label>Name </label>
+            <span>{{contractCtrl.filter.name}}</span>
+          </div>
+          <div class="rowLabel">
+            <label>Description </label>
+            <span>{{contractCtrl.filter.description}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="contractDet" ng-if="contractCtrl.view==='contract'">
+        <h5>Contract Details</h5>
+        <div class="clr">
+          <div class="rowLabel">
+            <label>Name </label>
+            <span>'{{contractCtrl.contract.name}}'</span>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+   <div class="button_footer">
+        <input type="button" value="OK" class="a-button add-tenant-buttons" ng-click="$dismiss()" />
+  </div> 
+</div>

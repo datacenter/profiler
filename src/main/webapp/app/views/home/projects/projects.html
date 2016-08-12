@@ -1,0 +1,52 @@
+<div class="projects-home">
+  <div class="clr">
+    <div class="projectContainer">
+      <div class="pull-left projectName">Projects</div>
+      <div class="pull-right marginright15 margintop5">
+        <input type="button" class="btn gray_btn" value="+ Add Project" ng-click="projCtrl.addProjectPopup()" />
+      </div>
+    </div>
+    <div class="clr innerprojectContainer">
+      <dl class="outerProject">
+        <div mpl-progress id="get-projects-request" ></div>
+      
+        <dd ng-repeat='project in projCtrl.projectsList' class="projectBox">
+          <div class="proHeader">
+            <h5>{{project.name}}</h5>
+            <div class="grayText">{{project.lastUpdatedTime | date : 'd MMM yyyy'}}</div>
+            <span class="deleteIcon"><i class="fa fa-pencil cursor" title="Edit Project"  ng-click="projCtrl.editProjectPopup(project, $index)"></i>&nbsp; | &nbsp;<i class="fa fa-trash cursor" ng-click="projCtrl.deleteProjectPopup(project)" title="Delete Project"></i></span>
+          </div>
+          <dl class="innerValue brd_btm">
+            <dd>
+              <div>{{project.logicalRequirementSummary.tenantCount}}</div>
+              <div>Tenants</div>
+            </dd>
+            <dd>
+              <div>{{project.logicalRequirementSummary.vrfCount}}</div>
+              <div>VRFs</div>
+            </dd>
+            <dd>
+              <div>{{project.logicalRequirementSummary.bdCount}}</div>
+              <div>BDs</div>
+            </dd>
+          </dl>
+          <dl class="innerValue">
+            <dd>
+              <div>{{project.logicalRequirementSummary.epgCount}}</div>
+              <div>EPGs</div>
+            </dd>
+            <dd>
+              <div>{{project.logicalRequirementSummary.endPoints}}</div>
+              <div>Endpoints</div>
+            </dd>
+            <dd>
+              <div>{{project.logicalRequirementSummary.contractCount}}</div>
+              <div>Contacts</div>
+            </dd>
+          </dl>
+          <a href="javascript:void(0)"  class="view_btn" ng-click="projCtrl.viewProjectDetails(project)">View Details</a>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>

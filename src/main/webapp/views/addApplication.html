@@ -1,0 +1,29 @@
+<div class="a-dialog-content-div">
+    <form name="addApplicationForm" ng-submit="addApplicationForm.$valid && validateAddApplication($event)" id="addApplication">
+	<!-- Use the form instead of attributes -->
+        <div class="a-dialog-content-span">
+            <label>Name</label>
+            <input type="text" id="name" ng-model="addAppForm.name" required class="a-textbox aci-field"/>
+        </div>
+        </br>
+        <div class="a-dialog-content-span no-of-instances">
+            <label>No. of Instances</label>
+             <input type="number" id="addAppInstances" ng-model="addAppForm.numInstances" class="" max="{{addAppMaxNumInstances}}" min="{{addAppMinNumInstances}}" style="width:20%"/>
+        </div>
+        </br>
+		<div class="a-dialog-content-span">	    
+             <label>Model</label>
+			<select id="appmodel" name="appmodel" required validationMessage="Enter {0}" placeholder="Select Model ..." class="aci-field" >
+			</select>
+        </div>
+        </br>
+        <div class="a-dialog-content-span">			
+			<div class="window-button">
+				<input class = "a-button" type="submit" value="Save"/>
+				<span><input class = "a-button" ng-click="onCanceladdApp()" value="Cancel"></span>
+			</div>           
+        </div>
+    </form>
+</div>
+
+

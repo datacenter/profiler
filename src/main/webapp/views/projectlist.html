@@ -1,0 +1,146 @@
+<div ng-app="webappApp" class="aci-content" style="background-color:#fafafa">
+    <div class="project-title-box" a-onActivate="getProjectList()">
+        <p class="project-title-text">Projects</p>
+
+        <div class="plus-icon" id="plus-icon" ng-click="openAddProjectWindow()" style="margin:10px 0 0 5px;"></div>
+        <div class="ng-scope">
+            <div class="projectListTable projecttabposition" aci-grid a-options="projectGridOptions"
+                 a-data-source="projectGridDataSource" a-selectable="'row'" id="projectGrid"></div>
+            <div class="project-title-box">
+                <p class="project-title-text">Summary</p>
+                <span class="summary-prjtitle"> {{currProject.name}}</span>
+            </div>
+            <div class="summary-container">
+                <div class="summary-mainbox">
+                    <div id="tabs">
+                        <ul class="tabColor">
+                            <li id="logicalTab" ng-click="logicalTabCss()"><a href="#tabs-1">Logical Summary</a></li>
+                            <li id="physicalTab" ng-click="physicalTabCss()"><a href="#tabs-2">Physical Summary</a></li>
+                        </ul>
+                        <div class="summary-tabscontainer">
+                            <div id="tabs-1">
+
+                                <div class="summary-detailsbox">
+                                    <div class="summary-titlebox">
+                                        <div class="summary-boxtitle-text">Workload Summary</div>
+                                    </div>
+                                    <ul class="wl-list">
+                                        <li>
+                                            <div class="workload-label">Tenants</div>
+                                            <div class="workload-data">
+                                                {{currProject.logicalRequirementSummary.tenantCount}}
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="workload-label">EPGs</div>
+                                            <div class="workload-data">
+                                                {{currProject.logicalRequirementSummary.epgCount}}
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="workload-label">End Points</div>
+                                            <div class="workload-data">
+                                                {{currProject.logicalRequirementSummary.endPoints}}
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="workload-label">Contracts</div>
+                                            <div class="workload-data">
+                                                {{currProject.logicalRequirementSummary.contractCount}}
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="workload-label">Filters</div>
+                                            <div class="workload-data">
+                                                {{currProject.logicalRequirementSummary.filterCount}}
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="workload-label">VRFs</div>
+                                            <div class="workload-data">
+                                                {{currProject.logicalRequirementSummary.vrfCount}}
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="workload-label">BDs</div>
+                                            <div class="workload-data">
+                                                {{currProject.logicalRequirementSummary.bdCount}}
+                                            </div>
+                                        </li>
+                                        
+                                    </ul>
+                                    <!--            <div class="workload-details-btn">Details</div>
+                                                <div class="view-details-icon"></div>
+                                    -->
+
+                                </div>
+                                 <div class="summaryBoxDividerline"></div>
+                                <div class="summary-detailsbox" id="sizingResultsMainPg">
+                                    <div class="summary-titlebox">
+                                        <div class="summary-boxtitle-text">Sizing Results</div>
+                                    </div>
+                                    <ul class="wl-list">
+                                        <li>
+                                            <div class="workload-label">Regular Leafs</div>
+                                            <div class="workload-data">
+                                                {{currProject.logicalRequirementSummary.leafCountRegular}}
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="workload-label">Border Leafs</div>
+                                            <div class="workload-data">
+                                                {{currProject.logicalRequirementSummary.leafCountBorder}}
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <!--                 <div class="utilzn-list-box"></div>
+                                                    <div class="workload-utilzn-btn">Leaf Utilization</div>
+
+                                                <div class="view-details-icon"></div>-->
+                                </div>
+                            </div>
+                            <div id="tabs-2" class="uitab-content">Physical Sizing Feature is not enabled in this release</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<span id="notificationProject" style="display:none;"></span>
+<div id="projectwindow" ng-include src="'views/addProject.html'" style="display:none; border-radius:4px"></div>
+<div id="delProjectWindow" ng-include src="'views/delProject.html'" style="display:none;border-radius:4px"></div>
+<div id="cloneProjectWindow" ng-include src="'views/cloneProject.html'" style="display:none;border-radius:4px"></div>
+<script>
+    $("#tabs").tabs();
+</script>
+
+<script id="errorTemplateProj" type="text/x-aci-template">
+    <div id="errorPopUpId" class="error-popup">
+        <div class="error-popup-header">
+            <span class="error-popup-title">ERROR</span>
+        </div>
+        <img src="images/errorIcon.png"/>
+
+        <div class="error-popup-desc">
+            <span class="error-popup-msg">#= title #</span>
+            <br>
+            <span class="error-popup-description">#= message #</span>
+        </div>
+        <button id="errorClose" class="error-popup-close" onClick="errorClose()">Close</button>
+    </div>
+</script>
+<script>
+    function errorClose() {
+        // console.log(document.getElementsByClassName("a-animation-container"));
+        var errorDiv = document.getElementsByClassName("a-animation-container");
+        var len = errorDiv.length;
+        for (var i = 0; i < len; i++) {
+            if(errorDiv[i].classList.length == 2){
+                 errorDiv[i].remove();
+             }           
+        }
+        
+        $("#PopupMaskProject").remove();
+    }
+</script>

@@ -1,0 +1,999 @@
+/*
+* Aci UI
+*/
+/* Aci RTL CSS */
+
+.a-rtl
+{
+    direction: rtl;
+}
+
+/* AutoComplete */
+
+.a-rtl .a-autocomplete .a-loading,
+.a-rtl .a-multiselect .a-loading
+{
+    right: auto;
+    left: 3px;
+}
+
+/* Buttons */
+
+.a-rtl .a-button-icontext .a-icon,
+.a-rtl .a-button-icontext .a-image
+{
+    margin-right: -.2rem;
+    margin-left: .2rem;
+}
+
+/* TextBoxes, Pickers, Combos */
+
+.a-rtl .a-dropdown-wrap,
+.a-rtl .a-picker-wrap,
+.a-rtl .a-numeric-wrap
+{
+    padding-right: 0;
+    padding-left: 1.9em;
+}
+
+.a-rtl .a-numeric-wrap.a-expand-padding
+{
+    padding-left: 0;
+}
+
+.a-rtl .a-datetimepicker .a-picker-wrap {
+    padding-right: 0;
+    padding-left: 3.8em;
+}
+
+.a-rtl span.a-picker-wrap .a-select,
+.a-rtl .a-numeric-wrap .a-select,
+.a-rtl .a-dropdown-wrap .a-select
+{
+    right: auto;
+    left: 0;
+    border-width: 0 1px 0 0;
+}
+
+.a-rtl .a-dropdown-wrap .a-input,
+.a-rtl .a-picker-wrap .a-input,
+.a-rtl .a-numeric-wrap .a-input
+{
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+.a-webkit .a-rtl .a-dropdown-wrap .a-input,
+.a-webkit .a-rtl .a-numeric-wrap .a-input
+{
+    margin-right:-1px;
+}
+
+.a-rtl .a-datetimepicker .a-picker-wrap .a-icon
+{
+    margin: 0 2px 0 0;
+}
+
+.a-rtl.a-popup > .a-static-header
+{
+    text-align: left;
+    padding-left: 22px;
+}
+
+.a-rtl.a-popup .a-item > .a-group {
+    right: auto;
+    left: 0;
+}
+
+.a-rtl.a-popup .a-state-hover > .a-group {
+    right: auto;
+    left: -1px;
+}
+
+.a-rtl.a-popup > .a-group-header,
+.a-rtl.a-popup > .a-virtual-wrap > .a-group-header
+{
+    text-align: left;
+}
+
+/* Calendar */
+
+.a-rtl .a-widget.a-calendar .a-nav-prev { left: auto; right: 1%; }
+.a-rtl .a-widget.a-calendar .a-nav-next { right: auto; left: 1%; }
+
+/* Editor */
+
+.a-rtl .a-form-text-row input
+{
+    margin-right: 0;
+    margin-left: 1em;
+}
+
+.a-rtl .a-form-checkbox-row input
+{
+    margin-left: 0;
+    margin-right: 7.5em;
+}
+
+.a-rtl .a-form-checkbox-row label
+{
+    padding-left: 0;
+    padding-right: 0.3em;
+}
+
+.a-rtl .a-breadcrumbs
+{
+    float: right;
+    padding-right: 0;
+    padding-left: 2px;
+}
+
+.a-rtl .a-search-wrap
+{
+    float: left;
+}
+
+.a-rtl .a-search-wrap .a-search
+{
+    right: auto;
+    left: 2px;
+}
+
+.a-rtl .a-breadcrumbs-wrap
+{
+    left: auto;
+    right: 0;
+    padding-left: 0;
+    padding-right: 5px;
+}
+
+.a-rtl .a-editor-dialog .a-button-wrapper
+{
+    text-align: left;
+}
+
+.a-rtl .a-tiles-arrange
+{
+    float: left;
+}
+
+.a-rtl .a-toolbar-wrap,
+.a-rtl .a-tile
+{
+    float: right;
+}
+
+.a-rtl .a-imagebrowser .a-thumb
+{
+    float: right;
+    margin: 4px 4px 0 10px;
+}
+
+.a-rtl .a-imagebrowser .a-state-hover .a-i-arrow-e,
+.a-rtl .a-imagebrowser .a-button:hover .a-i-arrow-e {
+  background-position: -16px -48px;
+}
+
+.a-rtl .a-tile strong
+{
+    float: right;
+}
+
+/* Grid */
+
+.a-rtl div.a-grid-header,
+.a-rtl div.a-grid-footer
+{
+    padding-right: 0;
+    padding-left: 17px;
+}
+
+.a-rtl .a-grid-header-wrap,
+.a-rtl .a-grid-footer-wrap
+{
+    border-width: 0;
+}
+
+.a-rtl .a-header > .a-grid-filter,
+.a-rtl .a-header > .a-header-column-menu
+{
+    float: left;
+}
+
+.a-rtl .a-grid-header .a-filterable .a-link
+{
+    padding-left: 2.4em;
+    padding-right: .6em;
+}
+
+.a-rtl .a-grid-header .a-header:first-child,
+.a-rtl .a-filter-row th:first-child,
+.a-rtl .a-grid tbody td:first-child,
+.a-rtl .a-grid tfoot td:first-child
+{
+    border-left-width: 1px;
+}
+
+.a-rtl div.a-grid td.a-hierarchy-cell
+{
+    border-left-width: 0;
+}
+
+.a-rtl .a-grid .a-group-cell + td,
+.a-rtl .a-grid .a-hierarchy-cell + td
+{
+    border-left-width: 1px;
+}
+
+.a-rtl .a-grid-header .a-header
+{
+    text-align: right;
+}
+
+.a-rtl .a-scrollbar-vertical
+{
+    right: auto;
+    left: 0;
+}
+
+.a-rtl .a-group-footer .a-group-cell + td
+{
+    border-left-width: 0;
+    border-right-width: 1px;
+}
+
+.a-rtl .a-grid-header-locked,
+.a-rtl .a-grid-content-locked
+{
+    border-width: 0;
+}
+
+.a-rtl .a-grid-header .a-with-icon .a-link
+{
+    margin-right: -0.6em;
+    margin-left: 1.3em;
+}
+
+.a-rtl .a-filtercell > span
+{
+    padding-right: 0;
+    padding-left: 4.8em;
+}
+
+.a-rtl .a-filtercell > .a-operator-hidden
+{
+    padding-right: 0;
+    padding-left: 2.3em;
+}
+
+.a-rtl .a-filtercell > span > .a-button
+{
+    right: auto;
+    left: 0;
+}
+
+.a-rtl .a-filter-row .a-dropdown-operator
+{
+    right: auto;
+    left: 2.5em;
+}
+
+/* Editing */
+
+.a-rtl .a-edit-label,
+.a-rtl .a-edit-form-container .editor-label
+{
+    float:right;
+    clear:both;
+    margin-left: 0;
+    margin-right: 2%;
+    text-align: left;
+}
+
+.a-rtl .a-edit-field,
+.a-rtl .a-edit-form-container .editor-field
+{
+    float:left;
+    clear:left;
+    margin-right: 0;
+    margin-left: 2%;
+}
+
+.a-rtl .a-edit-field > input[type="checkbox"]:first-child,
+.a-rtl .a-edit-field > input[type="radio"]:first-child,
+.a-rtl .a-edit-field > label:first-child > input[type="checkbox"],
+.a-rtl .a-edit-field > .a-button:first-child
+{
+    margin-right: 0;
+}
+
+.a-rtl .a-edit-form-container .a-edit-buttons
+{
+    text-align: left;
+}
+
+.a-rtl .a-dirty
+{
+    border-color: #f00 #f00 transparent transparent;
+    margin: -0.45em -0.6em 0 0;
+}
+
+/* Pager */
+
+.a-rtl .a-pager-info,
+.a-rtl .a-pager-wrap .a-pager-refresh
+{
+    float: left;
+}
+
+.a-rtl .a-pager-wrap > .a-link,
+.a-rtl .a-pager-wrap .a-pager-numbers,
+.a-rtl .a-pager-numbers li,
+.a-rtl .a-pager-input
+{
+    float: right;
+}
+
+/* Gantt*/
+
+.a-rtl .a-gantt .a-grid-header .a-header
+{
+    text-align: center;
+}
+
+.a-rtl .a-gantt-actions
+{
+    float: right;
+    margin-right: 0;
+    margin-left: .6em;
+}
+
+.a-rtl .a-gantt-toolbar > .a-gantt-views
+{
+    float: left;
+    margin-left: 0;
+}
+
+.a-rtl .a-grid tbody td:last-child,
+.a-rtl .a-grid thead th:last-child
+{
+    border-left-width: 0;
+}
+
+.a-rtl .a-timeline .a-grid-header-wrap
+{
+    border-left-width: 1px;
+}
+
+.a-rtl .a-gantt-toolbar li:last-child,
+.a-rtl .a-gantt-toolbar li:last-child > .a-link
+{
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+.a-rtl .a-gantt-toolbar li:last-child
+{
+    border-left-width: 1px;
+}
+
+.a-rtl .a-gantt-toolbar li:first-child
+{
+    border-left-width: 0;
+}
+
+.a-rtl .a-gantt-toolbar li:first-child,
+.a-rtl .a-gantt-toolbar li:first-child > .a-link
+{
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.a-rtl .a-gantt-rows,
+.a-rtl .a-gantt-columns,
+.a-rtl .a-gantt-dependencies
+{
+    left: auto;
+    right: 0;
+}
+
+.a-rtl .a-task-complete
+{
+    right: 0;
+    left: auto;
+}
+
+.a-rtl .a-task-template
+{
+    padding: .2em .6em .2em 1.4em;
+}
+
+.a-rtl .a-task-single
+{
+    text-align:right;
+}
+
+.a-rtl .a-task-actions
+{
+    right: auto;
+    left: 4px;
+}
+
+.a-rtl .a-task-draghandle
+{
+    margin-right: 16px;
+}
+
+.a-rtl .a-task-dot:after
+{
+    margin-right: 4px;
+    margin-left: 0;
+}
+
+.a-rtl .a-task-start
+{
+    right: 0;
+    left: auto;
+}
+
+.a-rtl .a-task-end
+{
+    left: 0;
+    right: auto;
+}
+
+.a-rtl .a-resources-wrap
+{
+    margin-left: 0;
+    margin-right: 20px;
+}
+
+/* Menu */
+
+.a-rtl .a-menu .a-item,
+.a-rtl .a-widget.a-menu-horizontal > .a-item
+{
+    border-width: 0 0 0 1px;
+}
+
+.a-rtl .a-widget.a-menu-horizontal > .a-item
+{
+    float: right;
+}
+
+.a-rtl .a-menu .a-item > .a-link > .a-i-arrow-s
+{
+    margin-right: 0;
+    margin-left: -8px;
+}
+
+.a-rtl .a-menu .a-item > .a-link > .a-i-arrow-e
+{
+    right: auto;
+    left: .2rem;
+}
+
+.a-rtl .a-menu .a-group .a-item > .a-link
+{
+    padding-left: 1.8em;
+    padding-right: .9em;
+}
+
+.a-rtl .a-menu .a-link > .a-i-arrow-e { background-position: 0 -48px; }
+.a-rtl .a-menu .a-link > .a-i-arrow-w { background-position: 0 -16px; }
+
+.a-rtl .a-menu .a-image,
+.a-rtl .a-menu .a-sprite
+{
+    margin-left: 4px;
+    margin-right: -4px;
+}
+
+/* Multiselect */
+
+.a-rtl .a-multiselect-wrap .a-input
+{
+    float: right;
+}
+
+.a-rtl .a-multiselect-wrap li
+{
+    float: right;
+    padding: .1em .4em .1em 1.6em;
+    margin: 2px 2px 2px 0;
+}
+
+.a-rtl .a-multiselect-wrap .a-select {
+    right: auto;
+    left: 0;
+    padding: .1em .2em;
+}
+
+/* Notification */
+
+.a-rtl .a-notification-button .a-notification-wrap,
+.a-rtl.a-notification-button .a-notification-wrap
+{
+    padding-right: .5em;
+    padding-left: 20px;
+}
+
+.a-rtl .a-notification-wrap > .a-i-note
+{
+    margin-right: 0;
+    margin-left: 4px;
+}
+
+.a-rtl .a-notification-wrap > .a-i-close
+{
+    right: auto;
+    left: 4px;
+}
+
+/* PanelBar */
+
+.a-rtl .a-panelbar-expand,
+.a-rtl .a-panelbar-collapse
+{
+    right: auto;
+    left: 2px;
+}
+
+.a-rtl .a-panelbar .a-image,
+.a-rtl .a-panelbar .a-sprite
+{
+    float: right;
+    margin-right: 0;
+    margin-left: 5px;
+}
+
+/* Progressbar */
+
+.a-rtl .a-progressbar > .a-reset
+{
+    left: auto;
+    right: -1px;
+}
+
+.a-rtl .a-progressbar-horizontal li.a-last
+{
+    border-left-width: 0;
+}
+
+/* Scheduler */
+
+.a-rtl .a-scheduler-toolbar > ul
+{
+    float:left;
+}
+
+.a-rtl .a-scheduler-toolbar > ul:first-child
+{
+    float:right;
+}
+
+.a-rtl .a-scheduler-toolbar > ul > li,
+.a-rtl .a-scheduler-footer > ul > li
+{
+    border-width:1px 0 1px 1px;
+}
+
+.a-rtl .a-scheduler-toolbar > ul > li:first-child
+{
+    border-right-width:1px;
+}
+
+.a-rtl .a-scheduler div.a-scheduler-footer ul li
+{
+    margin-right: 0;
+    margin-left: .6em;
+}
+
+.a-rtl .a-scheduler-toolbar .a-i-calendar,
+.a-rtl .a-scheduler-footer .a-icon
+{
+    margin-right: 0;
+    margin-left: 6px;
+}
+
+.a-rtl .a-scheduler .a-scrollbar-v .a-scheduler-header-wrap
+{
+    border-right-width: 0;
+    border-left-width: 1px;
+}
+
+.a-rtl .a-scheduler-monthview .a-scheduler-table td
+{
+    text-align: left;
+}
+
+.a-rtl .a-scheduler-table td,
+.a-rtl .a-scheduler-header th
+{
+    border-left-width: 0;
+    border-right-width: 1px;
+}
+
+.a-rtl .a-scheduler-table td:first-child,
+.a-rtl .a-scheduler-header th:first-child
+{
+    border-right-width: 0;
+}
+
+.a-rtl .a-scheduler-agendaview .a-scheduler-table td:first-child
+{
+    border-left-width: 0;
+    border-right-width: 1px;
+}
+
+.a-rtl .a-scheduler-agendaview .a-scheduler-table td.a-scheduler-datecolumn
+{
+    border-right-width: 0;
+}
+
+.a-rtl .a-scheduler-times th
+{
+    text-align: left;
+    padding-right: .5em;
+    padding-left: .6em;
+    border-right-width: 0;
+    border-left-width: 1px;
+}
+
+.a-rtl .a-scheduler-now-arrow
+{
+    left:auto;
+    right:0;
+}
+
+.a-rtl .a-scheduler-now-line
+{
+    left:0;
+    right:5px;
+}
+
+.a-rtl .a-event,
+.a-rtl .a-more-events
+{
+    text-align:right;
+}
+
+.a-rtl .a-event-template
+{
+    padding-left: 1.4em;
+    padding-right: .6em;
+}
+
+.a-rtl .a-event-actions,
+.a-rtl .a-event > .a-link,
+.a-rtl .a-task > .a-link
+{
+    right: auto;
+    left:4px;
+}
+
+.a-rtl .a-scheduler-agendaview .a-task > .a-link
+{
+    right: auto;
+    left: 0;
+}
+
+.a-rtl .a-event-actions:first-child
+{
+    float: right;
+    margin-left: 2px;
+    margin-right: 4px;
+}
+
+.a-rtl .a-event .a-event-top-actions,
+.a-rtl .a-event .a-event-bottom-actions
+{
+    left: auto;
+    right: 0;
+}
+
+.a-rtl .a-event > .a-resize-e
+{
+    right: auto;
+    left: 0;
+}
+
+.a-rtl .a-event > .a-resize-w
+{
+    left: auto;
+    right: 0;
+}
+
+.a-rtl .a-event > .a-resize-e:after,
+.a-rtl .a-event > .a-resize-w:after
+{
+    left: auto;
+    right: 1px;
+}
+
+.a-rtl .a-event > .a-resize-e:after
+{
+    right: auto;
+    left: 1px;
+}
+
+.a-rtl .a-scheduler-marquee .a-label-top
+{
+    left: auto;
+    right: .8em;
+}
+
+.a-rtl .a-scheduler-marquee .a-label-bottom
+{
+    right: auto;
+    left: .81em;
+}
+
+.a-rtl .a-tooltip-bottom
+{
+    text-align: right;
+}
+
+.a-rtl .a-tooltip-bottom .a-button
+{
+    float: right;
+    margin-right: 0;
+    margin-left: .3em;
+}
+
+.a-rtl .a-tooltip-bottom .a-quickedit-details
+{
+    float: left;
+    margin-left: 0;
+}
+
+.a-rtl .a-scheduler-agendaview .a-scheduler-table th,
+.a-rtl .a-scheduler-agendaview .a-scheduler-table td
+{
+    text-align: right;
+}
+
+.a-rtl .a-scheduler-timecolumn > div > .a-i-arrow-e
+{
+    right: auto;
+    left: -4px;
+}
+
+.a-rtl .a-scheduler-timecolumn .a-i-arrow-w
+{
+    margin-left: 0;
+    margin-right: -4px;
+}
+
+.a-rtl .a-scheduler-mark
+{
+    margin-right: 0;
+    margin-left: .5em;
+}
+
+.a-rtl .a-scheduler-agendaday
+{
+    float: right;
+    margin:0 0 0 .2em;
+}
+
+.a-rtl .a-scheduler-edit-form > .a-edit-box:first-child .a-datetimepicker
+{
+    margin-right: 0;
+    margin-left: 1em;
+}
+
+.a-rtl .a-edit-box
+{
+    float: right;
+}
+
+.a-rtl .a-edit-box + .a-edit-box
+{
+    float: left;
+}
+
+.a-rtl .a-scheduler-edit-form label + input
+{
+    margin-left: 0;
+    margin-right: 1em;
+}
+
+.a-rtl .a-edit-buttons .a-scheduler-delete
+{
+    left: auto;
+    right: .6em;
+}
+
+/* Slider */
+
+.a-rtl .a-slider .a-button-decrease
+{
+    left: auto;
+    right: 0;
+}
+
+.a-rtl .a-slider .a-button-increase
+{
+    right: auto;
+    left: 0;
+}
+
+.a-rtl .a-slider-horizontal .a-slider-track,
+.a-rtl .a-slider-horizontal .a-slider-selection
+{
+    left: auto;
+    right: 0;
+}
+
+.a-rtl .a-slider-horizontal .a-slider-buttons .a-slider-track
+{
+    left: auto;
+    right: 34px;
+}
+
+.a-rtl .a-slider .a-i-arrow-w {
+  background-position: 0 -16px;
+}
+
+.a-rtl .a-slider .a-state-hover .a-i-arrow-w,
+.a-rtl .a-slider .a-button:hover .a-i-arrow-w,
+.a-rtl .a-slider .a-textbox:hover .a-i-arrow-w,
+.a-rtl .a-slider .a-button:active .a-i-arrow-w {
+  background-position: -16px -16px;
+}
+
+.a-rtl .a-slider .a-i-arrow-e {
+  background-position: 0 -48px;
+}
+
+.a-rtl .a-slider .a-state-hover .a-i-arrow-e,
+.a-rtl .a-slider .a-button:hover .a-i-arrow-e,
+.a-rtl .a-slider .a-button:active .a-i-arrow-e,
+.a-rtl .a-slider .a-button:active .a-i-arrow-e {
+  background-position: -16px -48px;
+}
+
+/* TabStrip */
+
+.a-rtl .a-tabstrip-items .a-item,
+.a-rtl .a-panelbar .a-tabstrip-items .a-item
+{
+    margin-left: -1px;
+    margin-right: 0;
+}
+
+.a-rtl .a-tabstrip-items .a-item .a-image,
+.a-rtl .a-tabstrip-items .a-item .a-sprite,
+.a-rtl .a-panelbar .a-tabstrip-items .a-item .a-image,
+.a-rtl .a-panelbar .a-tabstrip-items .a-item .a-sprite
+{
+    margin: -3px -6px 0 3px;
+}
+
+.a-rtl .a-tabstrip-prev
+{
+    left: auto;
+    right: .4em;
+}
+
+.a-rtl .a-tabstrip-next
+{
+    right: auto;
+    left: .4em;
+}
+
+/* ToolBar */
+
+.a-rtl .a-overflow-anchor
+{
+    float: left;
+    border-width: 0 1px 0 0;
+}
+
+.a-rtl .a-toolbar .a-button-group .a-button,
+.a-rtl .a-toolbar .a-split-button .a-split-button-arrow
+{
+    margin: 0 -1px 0 0;
+}
+
+.a-rtl.a-overflow-container .a-overflow-button,
+.a-rtl.a-split-container .a-button
+{
+    text-align: right;
+}
+
+/* ToolTip */
+
+.a-rtl .a-tooltip-button
+{
+	text-align: left;
+}
+
+.a-rtl .a-tooltip-closable .a-tooltip-content
+{
+	padding-right: 0;
+	padding-left: 20px;
+}
+
+/* TreeView */
+
+.a-rtl .a-treeview .a-item
+{
+    padding: 0 16px 0 0;
+}
+
+.a-rtl .a-treeview .a-plus,
+.a-rtl .a-treeview .a-minus,
+.a-rtl .a-treeview .a-plus-disabled,
+.a-rtl .a-treeview .a-minus-disabled
+{
+    margin-left: 0;
+    margin-right: -16px;
+}
+
+.a-rtl .a-treeview .a-sprite,
+.a-rtl .a-treeview .a-image
+{
+    margin-right: 0;
+    margin-left: 3px;
+}
+
+/* Upload */
+
+.a-rtl .a-dropzone em
+{
+    margin-left: 0;
+    margin-right: .6em;
+}
+
+.a-rtl .a-upload-files .a-button,
+.a-rtl .a-upload-status-total .a-icon
+{
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+.a-rtl .a-file
+{
+    padding-right: .8em;
+    padding-left: .167em;
+}
+
+.a-rtl .a-filename
+{
+    margin-left: 0;
+    margin-right: 1em;
+}
+
+.a-rtl .a-upload-status
+{
+    right: auto;
+    left: 12px;
+}
+
+.a-rtl .a-progress
+{
+    left: auto;
+    right: 0;
+}
+
+.a-rtl .a-upload-selected
+{
+    margin-right: .8em;
+    margin-left: .2em;
+}
+
+/* Window */
+
+.a-rtl .a-window-titlebar .a-window-actions
+{
+    right: auto;
+    left: .5em;
+}

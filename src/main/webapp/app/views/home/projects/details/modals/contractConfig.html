@@ -1,0 +1,79 @@
+<div class="addprojectView clr">
+  <div class="modal-header">
+    <h3 class="modal-title">CONTRACT CONFIGURATION</h3>
+    <i class="fa fa-close closeIcon" ng-click="$dismiss()"></i>
+  </div>
+   <div class="outerBorder clr" ng-style="{height:outerdeviceHeight}" id="rightScrollContainer">
+
+    <div class="clr">
+      <dl class="searchContainer modal-open">
+        <dd>
+          <span class="sub_title">&nbsp;</span> 
+        </dd>   
+        <dd>
+          <span class=" ">Select Date&nbsp;&nbsp;</span>
+          <span class="pos-abs dateDetails ">
+            <span>
+            <label class="input"> <i class="icon-append fa fa-calendar" ng-click="contrCtrl.canShowstartDateCalPopup = true"></i>
+                          <input type="text" name="startdate" placeholder="start date" uib-datepicker-popup="{{contrCtrl.dateFormat}}" ng-model="contrCtrl.startDate" show-weeks="false" show-button-bar="false" is-open="contrCtrl.canShowstartDateCalPopup"/>
+                        </label>
+            </span>
+            <span>
+            <label class="input"> <i class="icon-append fa fa-calendar" ng-click="contrCtrl.canShowEndDateCalPopup = true" ></i>
+                        <input type="text" name="enddate" placeholder="end date" show-weeks="false" show-button-bar="false" uib-datepicker-popup="{{contrCtrl.dateFormat}}" ng-model="contrCtrl.endDate" is-open="contrCtrl.canShowEndDateCalPopup" />
+                      </label>
+                     </span>
+          </span>
+        </dd>
+        <dd> 
+          <div class="input-group searchBox">
+            <input type="text" class="form-control input-lg" ng-model="contrCtrl.repoFilter.searchString" placeholder="Search" />
+            <i class="glyphicon glyphicon-search searchIcon"></i>
+          </div>
+          <input type="button" class="add_btn" value="Go" ng-click="contrCtrl.getRepos(true)">
+        </dd>
+        <!-- </span> --> 
+        <!-- filter ui items ends  -->
+      </dl>
+    </div>
+    <div class="pos-rel">  
+      <div class="repos-list">
+        <table cellpadding="0" cellspacing="0" class="table table-bordered fixedTable tablehover" >
+          <thead>
+            <tr> 
+              <th>Contract Name</th>
+              <th>Source Name</th>
+              <th>Description</th>
+              <th>Version</th>
+              <th>Importd On</th> 
+              <th>Audit On</th>
+              <th>Audit Status</th> 
+            </tr>
+          </thead>   
+          <tbody>
+            <tr ng-repeat="repo in contrCtrl.reposList" ng-class="{activeRow:$index == contrCtrl.selectedRowIndex}" ng-click="contrCtrl.selectRow($index)"> 
+              <td>{{repo.objectName}}</td>
+              <td>{{repo.sourceDevice}}</td>
+              <td>{{repo.description}}</td> 
+              <td>{{repo.version}}</td>
+              <td>{{repo.importedOn}}</td> 
+              <td>{{repo.auditedon}}</td> 
+              <td>{{repo.auditstatus}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div> 
+       <div class="tablePaginationPart" ng-hide="contrCtrl.reposList.length===0"> 
+        <span class="pull-left">Page <input type="text" size="2" ng-model="contrCtrl.pageNumToGo"/> &nbsp;<a href="javascript:void(0)" class="add_btn" ng-click="contrCtrl.setPage(contrCtrl.pageNumToGo)">Go</a></span>
+        <span class="pull-right"><uib-pagination boundary-links="false" total-items="contrCtrl.pagination.totalItems" items-per-page="contrCtrl.pagination.itemsPerPage" max-size="contrCtrl.pagination.maxSize" ng-model="contrCtrl.pagination.currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-change="contrCtrl.onPageChanged()"></uib-pagination> 
+        </span>
+      </div>
+     
+    </div> 
+
+    <div mpl-progress id="repo-records-request"></div>
+     
+  </div>
+  <div  class="button_footer" style="margin-top: -35px;"><input type="button" class="a-button add-tenant-buttons" value="OK" ng-click="$close();" /></div>
+</div>
+ 

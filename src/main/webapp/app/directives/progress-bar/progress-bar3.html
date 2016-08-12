@@ -1,0 +1,8 @@
+<div class="mpl-progress-bar" ng-if="canShow">
+	<uib-progressbar class="mpl-progress progress-striped active" max="100" value="100" type="pending">
+		<i>Importing</i>
+	</uib-progressbar>
+	<p class="mpl-progress text-warning"> {{progressMessage}} </p>
+	<p class="mpl-error text-danger"> {{errorMessage}} </p>
+	<p class="mpl-success text-success"> {{successMessage}} </p>
+</div>

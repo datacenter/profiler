@@ -1,0 +1,37 @@
+<div class="addprojectView clr">
+  <div class="modal-header">
+    <h3 class="modal-title">Add Model</h3>
+    <i class="fa fa-close closeIcon" ng-click="$dismiss()"></i>
+  </div>
+  <form name="addModelForm"  ng-submit="modelPopupCtrl.addModel(modelPopupCtrl.modelObject)" novalidate mpl-form-validation>
+    
+    <div class="form-group">
+      <label>Name</label>
+      <div>
+        <input type="text" class="form-control" placeholder="Enter name" name="modelname" required ng-model="modelPopupCtrl.modelObject.name" />
+      </div>
+      <p class="help-block">Enter Name</p>
+    </div>
+    <div class="form-group">
+      <label>Plugin</label>
+      <div>        
+        <select class='form-control' name="modelpluginid" ng-model="modelPopupCtrl.modelObject.pluginId" required ng-options='plugin.id as plugin.name for plugin in  modelPopupCtrl.modelPlugins'>
+        </select>
+      </div>
+      <p class="help-block">Select Plugin</p>
+    </div>
+    <div class="form-group">
+      <label>Version</label>
+      <div>
+        <select class='form-control' name="modelpluginversion" ng-model="modelPopupCtrl.modelObject.pluginVersion" required ng-options='plugin.version as plugin.version for plugin in  modelPopupCtrl.modelPlugins'>
+        </select>
+      </div>
+      <p class="help-block">Select Plugin Version</p>
+    </div>
+
+    <div class="button_footer">
+      <input type="submit" value="Save" class="a-button add-tenant-buttons"/>
+    </div>
+
+  </form>
+</div>

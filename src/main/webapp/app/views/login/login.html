@@ -1,0 +1,31 @@
+<div class="login-container absolute-full-size">
+  
+  <div class="login-modal absolute-center">
+    <div class="login-header">
+      <span class="logo-container"><img src="images/cisco_logo.png"></span>
+      <span class="title">Application Profiler</span>
+    </div>
+    <form class="login-form" name="loginForm" novalidate mpl-form-validation>
+      <div class="form-group">
+        <label>User Name</label>
+        <input type="text" class="form-control" name="username" ng-model="loginCtrl.username" placeholder="user name" required ng-focus="loginCtrl.onFocuFormInput()">
+        <p class="help-block">Enter User Name</p>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" name="password" ng-model="loginCtrl.password" placeholder="password" required ng-focus="loginCtrl.onFocuFormInput()">
+        <p class="help-block">Enter Password</p>
+      </div>
+      <!-- <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div> -->
+      <button type="submit" class="btn btn-block login-btn" ng-click="loginCtrl.login()">Login</button>
+      <div ng-show="loginCtrl.isCredentialsIncorrect" class="has-error">
+        <p class="help-block">Invalid Credentials</p>
+      </div>
+    </form>    
+  </div>
+  
+</div>

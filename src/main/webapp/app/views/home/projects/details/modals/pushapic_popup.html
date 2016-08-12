@@ -1,0 +1,41 @@
+<div class="addprojectView clr">
+  <div class="modal-header">
+    <h3 class="modal-title">Apply Configuration</h3>
+    <i class="fa fa-close closeIcon" ng-click="$dismiss()"></i>
+  </div> 
+  <form name="pushToApicForm" ng-submit="apicCtrl.pushToApic()" novalidate mpl-form-validation>
+    <div class="form-group">
+      <label>Select APIC</label>
+      <select name="selectedapicdevice" class="form-control" ng-model='apicCtrl.selectedApicDevice' required ng-options='apicDevice as apicDevice.name for apicDevice in  apicCtrl.apicDevices'>
+      </select> 
+      <p class="help-block">Please Select APIC</p>
+    </div>
+
+    <div class="clr">
+      <p class="margintop10">Select Tenant :: {{apicCtrl.selectedTenantIndex}}</p>
+      <ul class="tenantList">
+        <li ng-repeat="tenant in apicCtrl.tenants" >
+          <div class="checkbox">
+            <label ng-click="apicCtrl.toggleTenantSelection($event, $index, tenant)">
+              <input type="checkbox" style="pointer-events:none;" ng-checked="apicCtrl.selectedTenantIndxs[$index]"/> {{tenant.displayName}}
+            </label>
+          </div>
+        </li>
+      </ul>
+      <div class="form-group">
+        <input name="hiddenValue" style="display:none;" class="form-control" ng-model='apicCtrl.hiddenValue' required>
+        <p class="help-block">Please Select Tenant</p>
+      </div>
+
+      <p class="margintop15">Note : Tenant configurations are applied one at a time</p>
+   </div>
+
+    <div class="button_footer">
+      <input type="submit" value="Apply" class="a-button add-tenant-buttons"/>
+    </div>
+
+  </form>
+
+  <div mpl-progress id="push-to-apic-request"></div>
+
+</div>

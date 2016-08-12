@@ -1,0 +1,223 @@
+.body {
+  font-family: HelveticaNeueLTStd-Roman; 
+  font-size: 13px;
+  padding: 0px;
+  margin: 0px;
+  overflow:hidden;
+}
+
+.pad-10 {
+  padding: 10px;
+}
+.brd_btm{
+  border-bottom: 1px solid #ebe9e9;
+}
+.text_field{
+  margin-bottom: 10px;
+}
+.text_field div:first-child{
+  color: #757575;
+  font-size: 14px;
+  padding: 5px 0px;
+}
+.text_field input,.text_field select{
+  width: 98%;
+  height: 35px;
+  padding: 0px 0px 0px 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+} 
+.text_field input[type="file"]{
+  border: 0px;
+  outline: none;
+}
+.text_field textarea{
+  width: 100%; 
+  padding: 0px 0px 0px 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}  
+.default_btn{ 
+  line-height: 28px;
+  background: #747474;
+  color: #fff;
+  border:0px;
+  border-radius: 0px;
+  font-size: 13px;
+  font-weight: normal;
+  letter-spacing: 0.7px;
+  padding: 0px 20px;
+}
+.gray_btn,.gray_btn:active,.gray_btn:hover{  
+    background: #747474;
+    color: #fff !important;
+    border: 0px;
+    border-radius: 0px;
+    font-size: 13px;
+    font-weight: normal;
+    padding: 5px 12px;
+}
+.margintop5{
+  margin-top: 5px;
+}
+.margintop10{
+  margin-top: 10px;
+}
+.margintop15{
+  margin-top: 15px;
+}
+.marginright15{
+  margin-right: 15px;
+}
+.marginleft10{
+  margin-left: 10px;
+}
+.margin_right5{
+  margin-right: 5px;
+}
+.fontSize12{
+      font-size: 12px;
+}
+.cursor{
+  cursor: pointer;
+}
+.mainContainer{
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+  }
+.cancel_icon{
+    position: relative;
+    top: -6px;
+    right: -7px;
+    color: #9A9A9A;
+    cursor: pointer;
+}
+.textAlign{
+  text-align: center;
+}
+.width50{
+  width: 50px;
+}
+.wid50{
+  width: 50%;
+}
+div.a-widget.a-window{
+  top: 50% !important; 
+  position: absolute !important;
+  transform: translateY(-50%) !important; 
+}
+.wid30{width:30%;}
+.wid70{width:70%;}
+.wid100{
+  width: 100% !important; 
+}
+.table>thead:first-child>tr:first-child>th{
+  color: #666;
+}
+.table tbody tr{
+  color: #757575;
+}
+.table tbody tr:nth-child(even){
+  background: #f9f9f9; 
+}
+.addprojectView .modal-header{
+    padding: 6px 10px !important;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 15px;
+    color: #fff;
+    background: #49ABFF;
+    margin: -3px -12px 15px -10px;
+}
+.addprojectView .modal-header h3{
+  font-size: 18px !important;
+}
+.addprojectView .modal-header label{
+  color: #757575
+}
+.login-btn{
+    background: #747474;
+    color: #fff !important;
+    letter-spacing: 0.7px;
+    outline: none;
+}
+.closeIcon{
+    position: absolute;
+    top: 7px;
+    right: 7px; 
+    cursor: pointer;
+    color: #666;
+    background: #fff;
+    border-radius: 100%;
+    padding: 4px 5px;
+    font: normal normal normal 11px/1 FontAwesome;
+}
+.form-group label{
+       color: #757575;
+       font-family: HelveticaNeueLTStd-Lt;
+       letter-spacing: 0.8px;
+}
+.loadingRepository{
+    background: rgba(255,255,255,0.92) url('../../images/loading.gif') 50% no-repeat;
+    position: absolute;
+    width: 97%;
+    top: 16px;
+    bottom: 0px;
+    z-index: 1000; 
+}
+.popupLoadingProgress{
+    background: rgba(255,255,255,0.92) url('../../images/loading.gif') 50% no-repeat;
+    position: absolute;
+    width: 96%; 
+    top: 42px;
+    bottom: 0px;
+    z-index: 1100;
+}
+form{
+  position: relative;
+}
+.tenantView .ng-scope{
+  height: 100%;
+}
+.tenantView .tenantCarousal ul{
+  padding: 0px;
+  margin: 0px;
+}
+.button_footer{
+    background: #f9f9f9;
+    padding: 10px 3px;
+    position: relative;
+    margin: 0px -10px;
+    text-align: center;
+    border-top: 1px solid #efefef;
+}
+.contratc_Arrow{
+    font-size: 16px;
+    font-weight: bold;
+}
+/*.modal.in .modal-dialog{
+   position: fixed !important;
+   top: 50% !important;
+   left: 50% !important;
+   transform: translate(-50%, -50%) !important;
+}*/
+ 
+.a-window-titlebar{
+  border-radius: 0px !important
+}
+#content-slider .tooltip:hover:after{
+    background-color: #4f4f4f;
+    border-radius: 2px;
+    color: #fff;
+    content: attr(title);
+    right: -5px;
+    top: 100%;
+    padding: 5px 6px;
+    position: absolute;
+    z-index: 98;
+    width: auto; 
+    display: table-cell;
+    white-space: nowrap; 
+    text-align: center;
+    font-size: 12px;
+}

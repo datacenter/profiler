@@ -1,0 +1,6 @@
+<div class="clr margintop15">
+		<p><span>APIC Name :</span> &nbsp; <span>{{currentApicDevice.name}}</span></p> 
+		<p class="red_txt" ng-if="pushToApicStatus==0">You can save config to APIC</p> 
+		<p class="update_txt" ng-if="pushToApicStatus==1">Selected Tenant(s) has been pushed to  <span class="orange_txt">{{currentApicDevice.name}}</span></p> 
+		<p><input type="button" class="add_btn" ng-click="pushApicPopup()" value="Save config to APIC"/></p>
+</div>

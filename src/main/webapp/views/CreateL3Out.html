@@ -1,0 +1,43 @@
+<div class="aci-dialog-content-div">
+    <form name="CreateL3Out" ng-submit="CreateL3Out.$valid && validateL3Out($event)">
+	<!-- Use the form instead of attributes -->
+        <div class="aci-dialog-content-span">
+            <label class="aci-textbox-label" for="name" style="padding-right:30px; width:30%">Name:</label>
+            <input type="text" id="name" ng-model="L3OutForm.name" class="aci-state-disabled" disabled style="width:50%"/>
+        </div>
+        </br>
+        <div class="aci-dialog-content-span">
+            <label class="aci-textbox-label" style="padding-right:30px; width:30%">Location:</label>
+		    <input type="checkbox" id="check" class="aci-checkbox" ng-model="L3OutForm.location">
+		    <label class="aci-checkbox-label" for="check">Local</label>
+        </div>
+        </br>
+        <div class="aci-dialog-content-span">
+           <label class="aci-textbox-label" for="epg" style="padding-right:30px; width:30%">EPG Prefixes:</label>
+           <input type="number" id="epg" ng-model="L3OutForm.epg" max="{{l3OutMaxEpgPrefixes}}" min="{{l3OutMinEpgPrefixes}}" required style="width:10%"/>
+        </div>
+        </br>
+        <div class="aci-dialog-content-span">
+           <label class="aci-textbox-label" for="span" style="padding-right:30px; width:30%">Span:</label>
+           <input type="number" id="span" ng-model="L3OutForm.span" max="{{l3OutMaxSpan}}" min="{{l3OutMinSpan}}" required style="width:10%"/>
+        </div>
+        </br>
+        <div class="aci-dialog-content-span">
+           <label class="aci-textbox-label" for="subIf" style="padding-right:30px; width:30%">Subinterfaces:</label>
+           <input type="number" id="subIf" ng-model="L3OutForm.subInterfaces" max="{{l3OutMaxSubinterfaces}}" min="{{l3OutMinSubinterfaces}}" required style="width:10%"/>
+        </div>
+        </br>
+        <div class="aci-dialog-content-span">
+           <label class="aci-textbox-label" for="svis" style="padding-right:30px; width:30%">SVIs:</label>
+           <input type="number" id="svis" ng-model="L3OutForm.svis" max="{{l3OutMaxSvis}}" min="{{l3OutMinEpgSvis}}" required style="width:10%"/>
+        </div>
+        </br>
+        </br>
+       <div class="aci-dialog-content-span">
+            <aci-button class="aci-primary" type="submit" style="float : right;">Save</aci-button>
+            <aci-button type="button" on-click="onCancelL3Out()" style="float : right;margin-right: 10px;">Cancel</aci-button>
+        </div>
+    </form>
+</div>
+
+

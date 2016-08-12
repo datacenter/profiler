@@ -1,0 +1,23 @@
+<div class="addprojectView clr">
+  <div class="modal-header">
+    <h3 class="modal-title">Edit Project</h3>
+    <i class="fa fa-close closeIcon" ng-click="$dismiss()"></i>
+  </div>
+  <form name="editProjectForm" ng-submit="popupCtrl.editProject(popupCtrl.projectObject)"  novalidate mpl-form-validation>
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" placeholder="Project Name" required  ng-model="popupCtrl.projectObject.name" name="name"/>
+      <p class="help-block">Enter Name</p>
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea rows="4" class="form-control"  placeholder="Project Description" ng-model="popupCtrl.projectObject.description" name="description">          
+      </textarea>
+      <p class="help-block">Enter Description</p>
+    </div>
+    <div class="button_footer">
+      <input type="submit" value="Submit" class="a-button add-tenant-buttons" />
+    </div>
+    <div mpl-progress id="add-project-request"></div>
+  </form>
+</div>
