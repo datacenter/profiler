@@ -1227,11 +1227,11 @@
             });
 
 
-            $("#contractl3count").aciNumericTextBox({ format: 'n0' });
+            // $("#contractl3count").aciNumericTextBox({ format: 'n0' });
 
             if (!e.shape.pKey) {
               logicService.getNodeDefaultValues("contractl3", function(resp) {
-                $("#contractl3count").getAciNumericTextBox().value(resp.noOfFilters);
+                // $("#contractl3count").getAciNumericTextBox().value(resp.noOfFilters);
                 e.shape.count = resp.noOfFilters;
                 document.getElementById("contractl3Name").value = resp.name;
                 e.shape.name = resp.name;

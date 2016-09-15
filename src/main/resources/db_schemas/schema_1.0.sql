@@ -216,11 +216,11 @@ INSERT INTO user (username,password,email,authentication,role) VALUES ('user','u
 
 INSERT INTO project(name,description) VALUES ('project1','');
 
-INSERT INTO plugin(name,version,description,path) VALUES ('palo_plugin','1.0','Paulo Alto Networks','/home/sizer/paulo_plugin/');
+INSERT INTO plugin(name,version,description,path) VALUES ('palo_plugin','1.0','Palo Alto Networks','/home/sizer/palo_plugin/');
 
-INSERT INTO model(name,plugin_id) VALUES ('PAM-300',1);
-INSERT INTO model(name,plugin_id) VALUES ('PAM-200',1);
+INSERT INTO model(name,plugin_id) VALUES ('PA-300',1);
+INSERT INTO model(name,plugin_id) VALUES ('PA-200',1);
 INSERT INTO model(name) VALUES ('ACI');
 
-INSERT INTO device (name,ip_address,username,password,importedStatus,model_id) VALUES ('paulo_device','$$','uname','pwd',1,1);
-INSERT INTO device(name,ip_address,username,password,type,importedStatus,model_id) VALUES ('APIC','173.36.219.47','admin','apprenda!2345','ACI',1,3);
+INSERT INTO device (name,ip_address,username,password,importedStatus,model_id) VALUES ('PA-300','$$','uname','pwd',1,1);
+INSERT INTO device(name,ip_address,username,password,type,importedStatus,model_id) VALUES ('APIC','1.2.3.4','admin','password','ACI',1,3);

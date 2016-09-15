@@ -44,7 +44,7 @@ profiler:
       ttlMillis: 60000000
       token: token
   plugin: 
-    path: /home/sizer/paulo_plugin/
+    path: /home/sizer/palo_plugin/
     file: predefinedApplicationPauloAlto.xml
     jar: paloPlugin-0.0.1-SNAPSHOT.jar
     
