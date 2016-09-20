@@ -19,10 +19,12 @@ Build Plugins: Palo Alto Plugin:
 
 Deployment from OVA:
 
-An OVA consisting of Ubuntu 16.04 LTS with application is available for download. (It is not in this Github repository). To setup a server, please follow below steps.
+An OVA consisting of Ubuntu 16.04 LTS with application is available for download from 
+https://cisco.box.com/s/4ft267oaupq7vm825drtxnv49n4oel0k
+. To setup a server, please follow below steps.
 
 1. Deploy OVA
 2. Boot the VM, Change the IP address of the server. Restart the server.
 3. Access the application from the link http://<ip address>>:8080/
 
-Refer userguide under docs directory for details.
+Refer userguide-ova-deployment under docs directory for details.
